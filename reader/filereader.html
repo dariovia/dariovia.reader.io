@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="reader.css"> 
+<head>
+<script src="conf.js"></script>
+<script src="lib.js"></script> 
+</head>	
+  <body>
+  <b>CSV File reader</b>
+  <h5>Upload a local CSV file<h5>
+    <input type="file" onchange="loadFile(this.files[0])">
+    <br><br> 
+	<div class="table">
+	<table class="table" id="filecsvtabletop"></table>
+	</div>	
+	<div class="table">
+	<table class="table" id="vxlans"></table>
+	</div>	
+</body>
+    <script>
+      async function loadFile(file) {
+        let text = await file.text();
+        //document.getElementById('output').textContent = text;
+		createTable(text,"vxlans","filecsvtabletop")
+      }
+    </script>
+	
+</html>

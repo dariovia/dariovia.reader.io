@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+<script src="conf.js"></script>
+<script src="lib.js"></script> 
+</head>	
+
+<html>
+<body>
+    <script>
+		const urlParams = new URLSearchParams(window.location.search);
+		var menu = urlParams.get('menu');
+		var csvfile = urlParams.get('csv');
+		confHash = loadConfiguration(menu);
+		fileCSV = confHash[csvfile]		
+		getDataJson(fileCSV);		
+    </script>		
+</body>
+</html>
