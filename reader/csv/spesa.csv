@@ -1,8 +1,8 @@
 prodotto,supermercato,genere,sottogenere
 latte,conad,alimentari,colazione
-uova bio,conad,alimentari,omelette/tiramisù/carbonara
-kellogs cioccolato,mercatò/coop,alimentari,colazione
-cereali misura,mercatò/coop,alimentari,colazione
+uova bio,conad,alimentari,omelette tiramisù carbonara
+kellogs cioccolato,mercatò coop,alimentari,colazione
+cereali misura,mercatò coop,alimentari,colazione
 plum cake misura,conad,alimentari,colazione
 arance,conad,alimentari,frutta
 mele,conad,alimentari,frutta
@@ -13,8 +13,8 @@ carote,conad,alimentari,verdura
 sedano,conad,alimentari,verdura
 patate,conad,alimentari,verdura
 cipolle,conad,alimentari,verdura
-aglio,conad,alimentari,verdura/pesto
-basilico,conad/mercatò/coop,alimentari,verdura/pesto
+aglio,conad,alimentari,verdura pesto
+basilico,conad mercatò coop,alimentari,verdura pesto
 porri,conad,alimentari,verdura
 scalogno,conad,alimentari,verdura
 cavoli,conad,alimentari,verdura
@@ -28,84 +28,104 @@ spinaci,conad,alimentari,verdura
 fagiolini,conad,alimentari,verdura
 fagioli,conad,alimentari,verdura
 piselli,conad,alimentari,verdura
-pane,conad/enza,alimentari,panini
+pane,conad enza,alimentari,panini
 pane senza glutine,conad,alimentari,panini
-pasta lunga,conad,alimentari,pranzo/cena
-pasta corta,conad,alimentari,pranzo/cena
-pasta senza glutine,conad,alimentari,pranzo/cena
-pasta fresca,conad,alimentari,pranzo/cena
-pesto pronto,conad,alimentari,pranzo/cena
-prosciutto cotto liberamente,conad,alimentari,pranzo/cena/panini
-prosciutto crudo,conad,alimentari,pranzo/cena/panini
-mortadella,conad,alimentari,pranzo/cena/panini
-bresaola,conad,alimentari,pranzo/cena
+pasta lunga,conad,alimentari,pranzo cena
+pasta corta,conad,alimentari,pranzo cena
+pasta senza glutine,conad,alimentari,pranzo cena
+pasta fresca,conad,alimentari,pranzo cena
+pesto pronto,conad,alimentari,pranzo cena
+prosciutto cotto liberamente,conad,alimentari,pranzo cena panini
+prosciutto crudo,conad,alimentari,pranzo cena panini
+mortadella,conad,alimentari,pranzo cena panini
+bresaola,conad,alimentari,pranzo cena
 guanciale,conad,alimentari,carbonara
-pancetta affumicata,conad,alimentari,pranzo/cena
+pancetta affumicata,conad,alimentari,pranzo cena
 bacon,conad,alimentari,hamburger
-wurstel,conad,alimentari,pranzo/cena/panini
+wurstel,conad,alimentari,pranzo cena panini pizza
 biscotti colazione,conad,alimentari,colazione
 biscotti senza glutine,conad,alimentari,colazione
 barrette senza glutine,conad,alimentari,colazione
-falafel,conad,alimentari,pranzo/cena
-piadine,conad,alimentari,pranzo/cena
-piadine senza glutine,conad,alimentari,pranzo/cena
+falafel,conad,alimentari,pranzo cena
+piadine,conad,alimentari,pranzo cena
+piadine senza glutine,conad,alimentari,pranzo cena
 arachidi,conad,alimentari,frutta secca
 zuppe,conad,alimentari,pranzo
 noci,conad,alimentari,frutta secca
 mandorle sgusciate,conad,alimentari,frutta secca
-hamburger banco,conad,alimentari,pranzo/cena
-petti di pollo,conad,alimentari,pranzo/cena
-fusi di pollo,conad,alimentari,pranzo/cena
-cosce di pollo,conad,alimentari,pranzo/cena
-tagliata di pollo,conad,alimentari,pranzo/cena
-salamelle,conad,alimentari,pranzo/cena
-salsiccia,conad,alimentari,pranzo/cena
-pasta di salsiccia,conad,alimentari,pranzo/cena/sugo
+hamburger banco,conad,alimentari,pranzo cena hamburger
+petti di pollo,conad,alimentari,pranzo cena
+fusi di pollo,conad,alimentari,pranzo cena
+cosce di pollo,conad,alimentari,pranzo cena
+tagliata di pollo,conad,alimentari,pranzo cena
+salamelle,conad,alimentari,pranzo cena sugo
+salsiccia,conad,alimentari,pranzo cena sugo
+pasta di salsiccia,conad,alimentari,pranzo cena sugo
 passata di pomodoro bottiglia,conad,alimentari,sugo
-passata di pomodoro media,conad,alimentari,sugo/pizza
-passata di pomodoro piccola,conad,alimentari,sugo/pizza
+passata di pomodoro media,conad,alimentari,sugo pizza
+passata di pomodoro piccola,conad,alimentari,sugo pizza
 passata rustica,conad,alimentari,sugo
 biscotti colazione senza zucchero,conad,alimentari,colazione
 cioccolato fondente,conad,alimentari,dolce
 cioccolato al latte,conad,alimentari,dolce
-mozzarelle,conad,alimentari,pizza/pranzo/cena
-mozzarelle bufala,conad,alimentari,pranzo/cena
+mozzarelle,conad,alimentari,pizza pranzo cena
+mozzarelle bufala,conad,alimentari,pranzo cena
 lievito,conad,alimentari,pizza
-farina senza glutine,conad,alimentari,pizza/torte
-pan grattato senza glutine,conad,alimentari,impanatura
+farina senza glutine,conad,alimentari,pizza torte
+farina 00,conad,alimentari,pizza torte
+pan grattato senza glutine,conad,alimentari,polpette impanatura
 gorgonzola,conad,alimentari,pizza
-fontal,conad,alimentari,pranzo/cena
-parmigliano,conad,alimentari,pranzo/cena
-asiago,conad,alimentari,pranzo/cena
-tomini,conad,alimentari,pranzo/cena/hamburger
-speck,conad,alimentari,pranzo/cena/piadine
-salame s.olcese,conad,alimentari,pranzo/cena
+fontal,conad,alimentari,pranzo cena
+parmigliano,conad,alimentari,pranzo cena
+asiago,conad,alimentari,pranzo cena
+tomini,conad,alimentari,pranzo cena hamburger
+speck,conad,alimentari,pranzo cena piadine
+salame s.olcese,conad,alimentari,feste pranzo cena
 stracchino,conad,alimentari,piadine
 squacquerone,conad,alimentari,piadine
-filadelfia,conad,alimentari,pranzo/cena
-sottilette,conad,alimentari,toast/pranzo/cena
+filadelfia,conad,alimentari,pranzo cena
+sottilette,conad,alimentari,toast pranzo cena
 formaggio a fette,conad,alimentari,panini
-yomo,conad,alimentari,pranzo/cena/colazione
+yomo,conad,alimentari,pranzo cena colazione
 kefir,conad,alimentari,colazione
-crema proteica cioccolato,conad,alimentari,pranzo/cena/colazione
-crema proteica vaniglia,conad,alimentari,pranzo/cena/colazione
-feta,conad,alimentari,pranzo/cena
+crema proteica cioccolato,conad,alimentari,pranzo cena colazione
+crema proteica vaniglia,conad,alimentari,pranzo cena colazione
+feta,conad,alimentari,pranzo cena
 panna da montare,conad,alimentari,dolci
-panna vegetale,conad,alimentari,pranzo/cena
-pasta corta senza glutine,conad,alimentari,pranzo/cena
-pasta lunga senza glutine,conad,alimentari,pranzo/cena
+panna vegetale,conad,alimentari,pranzo cena
+pasta corta senza glutine,conad,alimentari,pranzo cena
+pasta lunga senza glutine,conad,alimentari,pranzo cena
 biscotti Misura senza zuccheri,conad,alimentari,colazione
 biscotti Galbusera senza zuccheri,conad,alimentari,colazione
 Bucaneve senza zuccheri,conad,alimentari,colazione
 Zucchero,conad,alimentari,dolci
-Pastina senza glutine,conad,alimentari,pranzo/cena/minestra
-Stelline,conad,alimentari,pranzo/cena/minestra
-Ditaloni rigati,conad,alimentari,pranzo/cena
-Tempestine,conad,alimentari,pranzo/cena/minestra
+Pastina senza glutine,conad,alimentari,pranzo cena minestra
+Stelline,conad,alimentari,pranzo cena minestra
+Ditaloni rigati,conad,alimentari,pranzo cena
+Tempestine,conad,alimentari,pranzo cena minestra
 Pan carrè,conad,alimentari,toast
 Pan carrè senza glutine,conad,alimentari,toast
-salmone affumicato,conad,alimentari,pranzo/cena
+salmone affumicato,conad,alimentari,pranzo cena
 pasta sfoglia,conad,alimentari,torte salate
 pasta sfoglia senza glutine,conad,alimentari,torte salate
 olive taggiasche,conad,alimentari,pizza
 olive denocciolate,conad,alimentari,insalate
+carne trita,conad,alimentari,sugo polpette
+patatine,conad,alimentari,feste
+coca cola,conad,alimentari,feste pizza hamburger
+salame felino,conad,alimentari,feste pranzo cena
+sale,conad,alimentari,pranzo cena
+pepe,conad,alimentari,pranzo cena
+peperoncino,conad,alimentari,pranzo cena
+gallette mais,conad,alimentari,pranzo cena
+lenticchie,conad,alimentari,feste pranzo cena
+crocchette,conad,gatti,cibo
+lettiera,conad,gatti,nocciolina
+sfilaccetti rustici,conad,gatti,cibo
+pappa junior,conad,gatti,cibo
+delizie in gelatina,conad,gatti,cibo
+pinoli,conad,alimentari,pesto
+pecorino,conad,alimentari,pesto
+olio girasole,conad,alimentari,polpette impanatura
+scottex,conad,casa,pulizia
+carta igienica,conad,casa,bagno
