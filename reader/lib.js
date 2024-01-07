@@ -57,7 +57,7 @@ function getData(currentUrlCsv){
 				filterArrRegular[i] = "";
 				filterArrNegative[i] = "";
 			  }		  
-			  
+
 			  tab.push("<tr>"+tabHeader+"</tr>");
 			  
 			  tabFilter = "";
@@ -108,12 +108,13 @@ function callFilter(item, index){
 	filterFunction(index,"")
 }
 
-function filterFunction(index, firstLine) {
+function filterFunction(index, firstLine) {	
   // Declare variables
   var input, filter, table, tr, i, txtValue, inputNegative, filterNegative;
   const digits_only = string => [...string].every(c => '0123456789'.includes(c));
 
   input = document.getElementById("myFilter"+index);
+  
   filterEntry = new Map(); 
 
   if (typeof entries != 'undefined')
@@ -131,6 +132,7 @@ function filterFunction(index, firstLine) {
 				indexFirstLine = indexFirstLine + 1
 			}
 	  }
+	  
 /*  if (index == 0) {
 	if (input.value=="") {
 		input.value=filtre;
@@ -169,6 +171,7 @@ function filterFunction(index, firstLine) {
   }  
   
   // Loop through all table rows, and hide those who don't match the search query
+
   for (i = 0; i < tr.length; i++) {
 	var tdarr = tr[i].getElementsByTagName("td");
 	if (tdarr.length == filterArr.length){
@@ -271,6 +274,7 @@ function createTable(datacsv,tablabel,tablabeltop){
 		filterArrRegular[i] = "";
 		filterArrNegative[i] = "";
 	  }		  
+
 	  tab.push("<tr>"+tabHeader+"</tr>");
 	  tabFilter = "";
 	  tabCounter = "";
@@ -610,6 +614,7 @@ function addNewRow(vxlans){
 			cell.innerHTML = " <button type='button' id='deleteindex"+lastIndex+"' style='background-color:red;color:white' onclick='deleteRowInTable("+lastIndex+")'> X </button>";
 		}
 	}
+	
 }
 
 function deleteRowInTable(lastIndex){
@@ -619,18 +624,31 @@ function deleteRowInTable(lastIndex){
 	for (j = 3; j < tablev.rows.length; j++){
 		 tablev.rows[j].cells[lastColumnIndex].innerHTML = " <button type='button' id='deleteindex"+j+"' style='background-color:red;color:white' onclick='deleteRowInTable("+j+")'> X </button>";
 	}
-
+	filterFunction(0,"")
 }
 
 function addDeleteColumn(idtable){
 	
 	tablev = document.getElementById(idtable);
 	for (j = 0; j < tablev.rows.length; j++){
-		cell = tablev.rows[j].insertCell();
+		indexcol = tablev.rows[j].cells.length;
 		if (j>2){
+			cell = tablev.rows[j].insertCell();			
+			cell.className = "col_"+indexcol
 			cell.innerHTML = " <button type='button' id='deleteindex"+j+"' style='background-color:red;color:white' onclick='deleteRowInTable("+j+")'> X </button>";
 		}
+		else{
+			
+			if (j==1){
+				tablev.rows[j].insertCell().outerHTML = "<th class='col_"+indexcol+"'><input type='checkbox' id='myFilter"+indexcol+"' disabled></th>";
+				
+			}
+			else
+				tablev.rows[j].insertCell().outerHTML = "<th class='col_"+indexcol+"'></th>";
+		}
 	}
+	filterArr.push("")
+
 }
 
 
