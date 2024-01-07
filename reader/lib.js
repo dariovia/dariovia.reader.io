@@ -504,4 +504,134 @@ function merge(n, left, right){
   //remaining part needs to be addred to the result
   return result.concat(left.slice(l)).concat(right.slice(r));
 }
+
+function tableToCSV(linenbr) {
+	//extract csv filename
+	filename = document.getElementById("filename").files[0].name;
+	
+	//extract first line
+	firstLine = "";
+	for(i=0; i < document.getElementById("filecsvtabletop").rows[0].cells.length; i++){
+		firstLine = firstLine + document.getElementById("filecsvtabletop").rows[0].cells[i].textContent.replace(/[\r\n]/gm, '')
+		if (i < document.getElementById("filecsvtabletop").rows[0].cells.length - 1){
+			firstLine = firstLine + ",";
+		}
+	};
+	firstLine = firstLine.trim() + "\n";
+	
+	// Variable to store the final csv data
+	let csv_data = [];
+
+	// Get each row data
+	let rows = document.getElementsByTagName('tr');
+	
+	for (let i = linenbr; i < rows.length -2; i++) {
+
+		// Get each column data
+		let cols = rows[i].querySelectorAll('td,th');
+
+		// Stores each csv row data
+		let csvrow = [];
+		for (let j = 0; j < cols.length-1; j++) {
+
+			// Get the text data of each cell
+			// of a row and push it to csvrow
+			csvrow.push(cols[j].innerHTML.trim());
+		}
+
+		// Combine each column value with comma
+		csv_data.push(csvrow.join(","));
+	}
+
+	// Combine each row data with new line character
+	csv_data = firstLine +  csv_data.join('\n');
+
+	// Call this function to download csv file 
+	
+	console.log(csv_data)
+	//downloadCSVFile(csv_data, filename);
+}
+
+function downloadCSVFile(csv_data, filename) {
+
+	// Create CSV file object and feed
+	// our csv_data into it
+	CSVFile = new Blob([csv_data], {
+		type: "text/csv"
+	});
+
+	// Create to temporary link to initiate
+	// download process
+	let temp_link = document.createElement('a');
+
+	// Download csv file
+	temp_link.download = filename;
+	let url = window.URL.createObjectURL(CSVFile);
+	temp_link.href = url;
+
+	// This link should not be displayed
+	temp_link.style.display = "none";
+	document.body.appendChild(temp_link);
+
+	// Automatically click the link to
+	// trigger download
+	temp_link.click();
+	document.body.removeChild(temp_link);
+}
+
+function createInputTable(addrowtable,vxlans){
+	addrowtable = document.getElementById(addrowtable);
+	vxlanstable = document.getElementById(vxlans);
+	row = addrowtable.insertRow(0);
+	for (j = 0; j < vxlanstable.rows[0].cells.length-1; j++){
+		cell = row.insertCell(j);
+		cell.innerHTML = vxlanstable.rows[0].cells[j].innerText;	
+	}
+	
+	row = addrowtable.insertRow(1);
+	for (j = 0; j < vxlanstable.rows[0].cells.length-1; j++){
+		cell = row.insertCell(j);
+		cell.innerHTML = "<input type='text' id='newcell"+j+"' size = '15' >";	
+	}
+}
+
+function addNewRow(vxlans){
+	tablev = document.getElementById(vxlans);
+
+	row = tablev.insertRow(tablev.rows.length);
+	lastIndex = tablev.rows.length -1
+	for (j = 0; j < tablev.rows[0].cells.length; j++){
+		cell = row.insertCell(j);
+		if (document.getElementById("newcell"+j) !== null){
+			cell.innerHTML = document.getElementById("newcell"+j).value;
+			document.getElementById("newcell"+j).value = "";
+		}
+		else{
+			cell.innerHTML = " <button type='button' id='deleteindex"+lastIndex+"' style='background-color:red;color:white' onclick='deleteRowInTable("+lastIndex+")'> X </button>";
+		}
+	}
+}
+
+function deleteRowInTable(lastIndex){
+	tablev = document.getElementById("vxlans");
+	tablev.deleteRow(lastIndex)
+	lastColumnIndex=tablev.rows[0].cells.length-1
+	for (j = 3; j < tablev.rows.length; j++){
+		 tablev.rows[j].cells[lastColumnIndex].innerHTML = " <button type='button' id='deleteindex"+j+"' style='background-color:red;color:white' onclick='deleteRowInTable("+j+")'> X </button>";
+	}
+
+}
+
+function addDeleteColumn(idtable){
+	
+	tablev = document.getElementById(idtable);
+	for (j = 0; j < tablev.rows.length; j++){
+		cell = tablev.rows[j].insertCell();
+		if (j>2){
+			cell.innerHTML = " <button type='button' id='deleteindex"+j+"' style='background-color:red;color:white' onclick='deleteRowInTable("+j+")'> X </button>";
+		}
+	}
+}
+
+
 	

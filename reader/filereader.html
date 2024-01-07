@@ -8,7 +8,7 @@
   <body>
   <b>CSV File reader</b>
   <h5>Upload a local CSV file<h5>
-    <input type="file" onchange="loadFile(this.files[0])">
+    <input type="file" onchange="loadFile(this.files[0])" id="filename">
     <br><br> 
 	<div class="table">
 	<table class="table" id="filecsvtabletop"></table>
@@ -16,12 +16,24 @@
 	<div class="table">
 	<table class="table" id="vxlans"></table>
 	</div>	
+
+	<div>
+	<br>
+	<table class="table" id="addrowtable"></table>
+	<br>
+	<button type="button" onclick="addNewRow('vxlans')">add row</button>
+	</div>
+	<br>
+	<button type="button" onclick="tableToCSV(4)">download full CSV</button>
 </body>
     <script>
       async function loadFile(file) {
+		//filename = file.name;
         let text = await file.text();
         //document.getElementById('output').textContent = text;
-		createTable(text,"vxlans","filecsvtabletop")
+		createTable(text,"vxlans","filecsvtabletop");
+		addDeleteColumn("vxlans");		
+		createInputTable("addrowtable","vxlans");
       }
     </script>
 	
