@@ -553,8 +553,8 @@ function tableToCSV(linenbr) {
 
 	// Call this function to download csv file 
 	
-	console.log(csv_data)
-	//downloadCSVFile(csv_data, filename);
+	//console.log(csv_data)
+	downloadCSVFile(csv_data, filename);
 }
 
 function downloadCSVFile(csv_data, filename) {
@@ -711,6 +711,3 @@ function resetFilter(){
 		filterFunction(i)
 	}
 }
-
-
-	

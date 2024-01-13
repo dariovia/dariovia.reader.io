@@ -6,8 +6,64 @@
 <script src="lib.js"></script> 
 </head>	
   <body>
-  <h4>CSV File backoffice</h4>
-  <h5>Upload a local CSV file</h5>
+  <h3>CSV File backoffice</h3>
+  <h4>Step 1 : download remote CSV file (if you need)</h4>
+  
+  	<input type="text" size="100" id="urlCsv"> 
+	<select name="urlCsvMenud" id="urlCsvMenu" onchange="updateCsvFile()">
+		<option value="">--Please choose --</option>
+	</select>
+	<button id ="buttonRefresh"  onClick="window.location.reload();">ok</button>
+	<div id="fileLastModified"></div>
+	<div id="csv-source"></div>
+    <script>
+		const urlParams = new URLSearchParams(window.location.search);
+	    menu = urlParams.get('menu');
+		loadConfiguration(menu);
+		initData(urlParams); //out: csvfile
+		
+		var x1 = document.getElementById("urlCsv");
+		var x3 = document.getElementById("buttonRefresh");
+		var x4 = document.getElementById("urlCsvMenu");
+		
+		if (csvfile != "")
+			x1.value = csvfile
+
+		//if conf file not exists
+		if (typeof confHash === "undefined"){
+			x4.style.display = "none";
+		}		
+		else if ((platform !=null) && (csvfile != "")) {
+			//csv param in query string
+			x1.style.display = "none";
+			x3.style.display = "none";
+			x4.style.display = "none";
+		}
+		//if not csv in query string verify if file configuration is not empy or if exists
+		else if (Object.keys(confHash).length != 0){
+			x1.style.display = "none";
+			//set options values		
+			for (var key in confHash) {				
+				x4.add( new Option( key, confHash[key] ) );
+			}	
+		}
+		else {
+			x4.style.display = "none";
+		}		
+        
+		document.getElementById("csv-source").innerHTML = "<p>data source file : <font color=\"blue\"><a href='"+document.getElementById("urlCsv").value+"' download>"+document.getElementById("urlCsv").value+"</font></p></a>"
+		
+		urlArr = document.getElementById("urlCsv").value.split("/");
+		urlRepositoryString = ""
+		if (urlArr[2]){
+			username = urlArr[2].split(".")[0];
+			urlRepositoryString = "https://github.com/"+username+"/"+urlArr[3]
+		}
+    </script>
+	<br>
+
+  <hr>
+  <h4>Step 2 : open the local CSV file to read and change</h4>
     <input type="file" onchange="loadFile(this.files[0])" id="filename">
     <br><br> 
 	<div class="table">
@@ -23,7 +79,18 @@
 
 	</div>
 	<br>
+	  <hr>
+	<h4>Step 3 : save the modified table to a local CSV file </h4>
 	<button type="button" onclick="tableToCSV(4)">download full CSV</button>
+	  <hr>
+	<h4>Step 4 : upload the csv saved file to the data repository </h4>
+	<div id="urlRepository"></div>
+	<script>
+		if (urlRepositoryString !== ""){
+			
+			document.getElementById("urlRepository").innerHTML = "<p>repository : <font color=\"red\"><a href='"+urlRepositoryString+"' target=\"_blank\">"+urlRepositoryString+"</font></p></a>"
+		}
+	</script>
 </body>
     <script>
       async function loadFile(file) {
