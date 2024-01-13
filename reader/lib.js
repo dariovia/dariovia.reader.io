@@ -139,7 +139,7 @@ function filterFunction(index, firstLine) {
 		filtre="";
 	}
   }*/
-  
+
   if (input){
 	filterArr[index] = input.value.toUpperCase();
 	filterArrRegular[index] = input.value;
@@ -148,7 +148,7 @@ function filterFunction(index, firstLine) {
 	filterArr[index] = "";
 	filterArrRegular[index] = "";
   }
-
+  
   inputNegative = document.getElementById("myFilterNegative"+index);
   if (inputNegative)
 	filterNegative = inputNegative.value.toUpperCase();
@@ -160,10 +160,10 @@ function filterFunction(index, firstLine) {
   tr = table.getElementsByTagName("tr");
   //var tdini = tr[3].getElementsByTagName("td");
   var tdini = tr[4].getElementsByTagName("td");
-  
+
   for(j = 0; j < filterArr.length; j++){
 	idCounter = "myCounter"+j;
-	
+
 	txtValue = tdini[j].textContent || tdini[j].innerText;
 	if ((digits_only(txtValue) &&(document.getElementById(idCounter) !== null)) || (j == 0)) {
 		document.getElementById(idCounter).value = 0;
@@ -171,7 +171,6 @@ function filterFunction(index, firstLine) {
   }  
   
   // Loop through all table rows, and hide those who don't match the search query
-
   for (i = 0; i < tr.length; i++) {
 	var tdarr = tr[i].getElementsByTagName("td");
 	if (tdarr.length == filterArr.length){
@@ -194,7 +193,7 @@ function filterFunction(index, firstLine) {
 		var matchFilterNegative = true;
 		for(j = 0; j < filterArrNegative.length; j++){
 			txtValue = tdarr[j].textContent || tdarr[j].innerText;
-			if (txtValue.toUpperCase() == filterArrNegative[j])  {
+			if ((txtValue.toUpperCase() == filterArrNegative[j])&&(txtValue !== ""))  {
 				matchFilterNegative = false;
 				break;
 			}
@@ -250,7 +249,9 @@ function updateCsvFile(){
 
 function createTable(datacsv,tablabel,tablabeltop){
 	const digits_only = string => [...string].every(c => '0123456789'.includes(c));
-
+	filterArr = [];
+	filterArrNegative = [];
+	filterArrRegular = [];
 	  // Examine the text in the response
 				
 	  var lines = datacsv.split("\n"), tab = [], i; tab_tophead = [];
@@ -585,46 +586,92 @@ function downloadCSVFile(csv_data, filename) {
 
 function createInputTable(addrowtable,vxlans){
 	addrowtable = document.getElementById(addrowtable);
+	addrowtable.innerHTML = '';
 	vxlanstable = document.getElementById(vxlans);
 	row = addrowtable.insertRow(0);
 	for (j = 0; j < vxlanstable.rows[0].cells.length-1; j++){
 		cell = row.insertCell(j);
 		cell.innerHTML = vxlanstable.rows[0].cells[j].innerText;	
 	}
+	cell = row.insertCell(vxlanstable.rows[0].cells.length -1);
 	
 	row = addrowtable.insertRow(1);
 	for (j = 0; j < vxlanstable.rows[0].cells.length-1; j++){
 		cell = row.insertCell(j);
-		cell.innerHTML = "<input type='text' id='newcell"+j+"' size = '15' >";	
+		cell.innerHTML = "<input type='text' id='newcell"+j+"' size = '15' onkeyup='newFilterFunction("+j+")'>";	
 	}
+	cellf = row.insertCell(vxlanstable.rows[0].cells.length -1);
+	cellf.innerHTML = "<button  onclick = 'addNewRow()'>add row</button>";
 }
 
-function addNewRow(vxlans){
-	tablev = document.getElementById(vxlans);
+function newFilterFunction(index){
+	document.getElementById("myFilter"+index).value = document.getElementById("newcell"+index).value;
+	filterFunction(index)
+}
 
-	row = tablev.insertRow(tablev.rows.length);
-	lastIndex = tablev.rows.length -1
-	for (j = 0; j < tablev.rows[0].cells.length; j++){
-		cell = row.insertCell(j);
-		if (document.getElementById("newcell"+j) !== null){
-			cell.innerHTML = document.getElementById("newcell"+j).value;
-			document.getElementById("newcell"+j).value = "";
-		}
-		else{
-			cell.innerHTML = " <button type='button' id='deleteindex"+lastIndex+"' style='background-color:red;color:white' onclick='deleteRowInTable("+lastIndex+")'> X </button>";
-		}
+function addNewRow(){
+	
+	if (document.getElementById("newcell0").value == ""){
+		
+	}
+	else {
+		tablev = document.getElementById("vxlans");
+		row = tablev.insertRow(tablev.rows.length);
+		lastIndex = tablev.rows.length -1
+		cellInARow = tablev.rows[0].cells.length
+		for (j = 0; j < cellInARow; j++){
+
+			cell = row.insertCell(j);
+			idNewcell = "newcell"+j
+			if (document.getElementById(idNewcell) !== null){
+				txtValue = document.getElementById(idNewcell).value
+
+				cell.innerHTML = txtValue;
+				//update counters
+				idCounter = "myCounter"+j;
+				if ((isNaN(Math.round(txtValue)) === false) && document.getElementById(idCounter) !== null){
+					lastValue = parseInt(document.getElementById(idCounter).value);
+
+					document.getElementById(idCounter).value = lastValue + parseInt(Math.round(txtValue));
+				} else if (j==0){
+					lastValue = parseInt(document.getElementById(idCounter).value);
+
+					document.getElementById(idCounter).value = lastValue + 1;
+				}				
+				document.getElementById("newcell"+j).value = "";
+			}
+			else{
+				cell.innerHTML = " <button type='button' id='deleteindex"+lastIndex+"' style='background-color:red;color:white' onclick='deleteRowInTable("+lastIndex+")'> X </button>";
+			}
+			//document.getElementById("myFilter"+j).value = ""					
+		}	
+
 	}
 	
 }
 
 function deleteRowInTable(lastIndex){
 	tablev = document.getElementById("vxlans");
+	for (j = 0; j < tablev.rows[lastIndex].cells.length; j++){
+		if (tablev.rows[lastIndex].cells[j].textContent){
+			txtValue = tablev.rows[lastIndex].cells[j].textContent|| tablev.rows[lastIndex].cells[j].innerText;
+			idCounter = "myCounter"+j;
+			if ((isNaN(Math.round(txtValue)) === false) && document.getElementById(idCounter) !== null){
+				lastValue = parseInt(document.getElementById(idCounter).value);
+				document.getElementById(idCounter).value = lastValue - parseInt(Math.round(txtValue));
+			} else if (j==0){
+				lastValue = parseInt(document.getElementById(idCounter).value);
+				document.getElementById(idCounter).value = lastValue - 1;
+			}
+		}
+	}
 	tablev.deleteRow(lastIndex)
 	lastColumnIndex=tablev.rows[0].cells.length-1
 	for (j = 3; j < tablev.rows.length; j++){
-		 tablev.rows[j].cells[lastColumnIndex].innerHTML = " <button type='button' id='deleteindex"+j+"' style='background-color:red;color:white' onclick='deleteRowInTable("+j+")'> X </button>";
+		 //tablev.rows[j].cells[lastColumnIndex].innerHTML = " <button type='button' id='deleteindex"+j+"' style='background-color:red;color:white' onclick='deleteRowInTable("+j+")'> X </button>";
+		 tablev.rows[j].cells[lastColumnIndex].innerHTML = " <button type='button' id='deleteindex"+j+"' class='button' onclick='deleteRowInTable("+j+")' title='Delete row'> X </button>";
 	}
-	filterFunction(0,"")
+	
 }
 
 function addDeleteColumn(idtable){
@@ -635,12 +682,14 @@ function addDeleteColumn(idtable){
 		if (j>2){
 			cell = tablev.rows[j].insertCell();			
 			cell.className = "col_"+indexcol
-			cell.innerHTML = " <button type='button' id='deleteindex"+j+"' style='background-color:red;color:white' onclick='deleteRowInTable("+j+")'> X </button>";
+			//cell.innerHTML = " <button type='button' id='deleteindex"+j+"' style='background-color:red;color:white' onclick='deleteRowInTable("+j+")'> X </button>";
+			cell.innerHTML = " <button type='button' id='deleteindex"+j+"' class='button' onclick='deleteRowInTable("+j+")' title='Delete row'> X </button>";
 		}
 		else{
 			
 			if (j==1){
-				tablev.rows[j].insertCell().outerHTML = "<th class='col_"+indexcol+"'><input type='checkbox' id='myFilter"+indexcol+"' disabled></th>";
+				//tablev.rows[j].insertCell().outerHTML = "<th class='col_"+indexcol+"'><input type='checkbox' id='myFilter"+indexcol+"' disabled></th>";
+				tablev.rows[j].insertCell().outerHTML = "<th class='col_"+indexcol+"'><button type='button' onclick='resetFilter()'>reset filter</button></th>";
 				
 			}
 			else
@@ -648,7 +697,19 @@ function addDeleteColumn(idtable){
 		}
 	}
 	filterArr.push("")
+	
+}
 
+function resetFilter(){
+	tablev = document.getElementById("vxlans");
+	cellInARow = tablev.rows[0].cells.length
+
+	for (j = 0; j < cellInARow -1; j++){
+		document.getElementById("myFilter"+j).value = ""
+	}
+	for (i = 0; i < cellInARow -1; i++) {
+		filterFunction(i)
+	}
 }
 
 
