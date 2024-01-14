@@ -711,3 +711,37 @@ function resetFilter(){
 		filterFunction(i)
 	}
 }
+
+function makeTableEditable(idtable){
+	tablev = document.getElementById("vxlans");
+	for (i = 3; i < tablev.rows.length;i++){
+		row = tablev.rows[i]
+		for (j = 0; j < row.cells.length -1;j++){
+			cell = row.cells[j]
+			idcell = "modifcell_"+ i + "_" + j
+			cell.id = idcell
+			cell.outerHTML = "<td ondblclick='modifyCell("+i+","+j+")'"+cell.outerHTML.split("<td ")[1]
+		}
+	}
+	
+}
+
+function modifyCell(i,j){
+	//console.log(i,j)
+	cellId = "modifcell_"+ i + "_" + j
+	cell = document.getElementById(cellId)
+	celltext = cell.innerText
+	cellhtml = cell.outerHTML
+	cell.outerHTML = cellhtml.replace(celltext,"<textarea id=textarea_"+cellId+" onblur=submitCell("+i+","+j+")>"+celltext+"</textarea>")
+}
+
+function submitCell(i,j){
+	taId = "textarea_" + "modifcell_"+ i + "_" + j
+	cellId = "modifcell_"+ i + "_" + j
+	cellText = document.getElementById(taId).value
+
+	//<td ondblclick="modifyCell(5,1)" class="col_1" id="modifcell_5_1"><textarea id="textarea_modifcell_5_1" onblur="submitCell(5,1)">MATEMATICA</textarea></td>
+	document.getElementById(cellId).outerHTML = "<td ondblclick='modifyCell("+i+","+j+")'" + " class=col_"+j + " id="+cellId + ">"+cellText+"</td>"
+	//console.log(i,j, document.getElementById(taId).value, document.getElementById(cellId).outerHTML)
+}
+	
