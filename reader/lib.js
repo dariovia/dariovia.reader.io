@@ -622,11 +622,15 @@ function addNewRow(){
 		for (j = 0; j < cellInARow; j++){
 
 			cell = row.insertCell(j);
+			cell.className  = "col_"+j
+			
 			idNewcell = "newcell"+j
 			if (document.getElementById(idNewcell) !== null){
 				txtValue = document.getElementById(idNewcell).value
-
+				cell.id = "modifcell_"+lastIndex+"_"+j
+				
 				cell.innerHTML = txtValue;
+				cell.outerHTML = "<td ondblclick='modifyCell("+lastIndex+","+j+")'"+cell.outerHTML.split("<td ")[1]
 				//update counters
 				idCounter = "myCounter"+j;
 				if ((isNaN(Math.round(txtValue)) === false) && document.getElementById(idCounter) !== null){
@@ -641,7 +645,7 @@ function addNewRow(){
 				document.getElementById("newcell"+j).value = "";
 			}
 			else{
-				cell.innerHTML = " <button type='button' id='deleteindex"+lastIndex+"' style='background-color:red;color:white' onclick='deleteRowInTable("+lastIndex+")'> X </button>";
+				cell.innerHTML = " <button type='button' id='deleteindex"+lastIndex+"' class=button onclick='deleteRowInTable("+lastIndex+")'> X </button>";
 			}
 			//document.getElementById("myFilter"+j).value = ""					
 		}	
@@ -732,7 +736,13 @@ function modifyCell(i,j){
 	cell = document.getElementById(cellId)
 	celltext = cell.innerText
 	cellhtml = cell.outerHTML
-	cell.outerHTML = cellhtml.replace(celltext,"<textarea id=textarea_"+cellId+" onblur=submitCell("+i+","+j+")>"+celltext+"</textarea>")
+	
+	
+	splitOHArr = cell.outerHTML.split(">"+celltext+"<")
+	cell.outerHTML = splitOHArr[0]+">"+"<textarea id=textarea_"+cellId+" onblur=submitCell("+i+","+j+")>"+celltext+"</textarea>"+"<"+splitOHArr[1]
+	
+	//cell.outerHTML = cellhtml.replace(celltext,"<textarea id=textarea_"+cellId+" onblur=submitCell("+i+","+j+")>"+celltext+"</textarea>")
+	
 }
 
 function submitCell(i,j){
@@ -745,3 +755,36 @@ function submitCell(i,j){
 	//console.log(i,j, document.getElementById(taId).value, document.getElementById(cellId).outerHTML)
 }
 	
+function loadFile(currentUrlCsv){
+	const digits_only = string => [...string].every(c => '0123456789'.includes(c));
+	if (currentUrlCsv != "")
+		fetch(currentUrlCsv)
+		  .then(
+			function(response) {
+			    for (var pair of response.headers.entries()) {
+					if (pair[0] === 'last-modified'){
+						var par= document.createElement("p");
+						var t = document.createTextNode("File generated on : " + pair[1]);
+						par.appendChild(t);
+						document.getElementById("fileLastModified").appendChild(par);
+					} 
+				}
+				if (response.status !== 200) {
+					console.log('Looks like there was a problem. Status Code: ' + response.status);
+					return;
+				}
+				// Examine the text in the response
+				response.text().then(function(datacsv) {	
+				var lines = datacsv.split("\n"), tab = [], i; tab_tophead = [];	  
+					for (i = 1; i < lines.length; i++) {
+						col = lines[i].slice(0).split(",");
+						console.log(col)
+					}
+
+				});		  
+			}
+		  )
+		  .catch(function(err) {
+			console.log('Fetch Error :-S', err);
+		  });
+}

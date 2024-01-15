@@ -47,8 +47,12 @@
 		else {
 			x4.style.display = "none";
 		}		
-		
-		getData(document.getElementById("urlCsv").value);
+		mode = urlParams.get('mode');
+		console.log(urlParams)
+		if (mode == "response")
+			loadFile(document.getElementById("urlCsv").value)
+		else	
+			getData(document.getElementById("urlCsv").value);
         document.getElementById("csv-source").innerHTML = "<p>data source file : <font color=\"blue\">" + document.getElementById("urlCsv").value + "</font></p>"
     </script>	
 
