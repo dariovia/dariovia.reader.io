@@ -13,57 +13,26 @@
 	<button id ="buttonRefresh"  onClick="window.location.reload();">Refresh Page</button>
 	<div id="fileLastModified"></div>
 	<div id="csv-source"></div>
+	<div id="description"></div>
     <script>
-		const urlParams = new URLSearchParams(window.location.search);
-	    menu = urlParams.get('menu');
-		loadConfiguration(menu);
-		initData(urlParams); //out: csvfile
-		
-		var x1 = document.getElementById("urlCsv");
-		var x3 = document.getElementById("buttonRefresh");
-		var x4 = document.getElementById("urlCsvMenu");
-		
-		if (csvfile != "")
-			x1.value = csvfile
-
-		//if conf file not exists
-		if (typeof confHash === "undefined"){
-			x4.style.display = "none";
-		}		
-		else if ((platform !=null) && (csvfile != "")) {
-			//csv param in query string
-			x1.style.display = "none";
-			x3.style.display = "none";
-			x4.style.display = "none";
-		}
-		//if not csv in query string verify if file configuration is not empy or if exists
-		else if (Object.keys(confHash).length != 0){
-			x1.style.display = "none";
-			//set options values		
-			for (var key in confHash) {				
-				x4.add( new Option( key, confHash[key] ) );
-			}	
-		}
-		else {
-			x4.style.display = "none";
-		}		
-		mode = urlParams.get('mode');
-		console.log(urlParams)
-		if (mode == "response")
-			loadFile(document.getElementById("urlCsv").value)
-		else	
-			getData(document.getElementById("urlCsv").value);
-        document.getElementById("csv-source").innerHTML = "<p>data source file : <font color=\"blue\">" + document.getElementById("urlCsv").value + "</font></p>"
-    </script>	
+	const urlParams = new URLSearchParams(window.location.search);
+	theMainReader()
+    </script>
+	
 
 	<div class="table">	
-	<table class="table" id="tophead"><p>click to hide column</p></table>
+	<table class="table" id="tophead"></table>
 	</div>
 	
 	<br> 
 	<div class="table">
 	<table class="table" id="vxlans"></table>
-	</div>		
+	</div>	
+
+	<div class="table">
+	<table class="table" id="requests"></table>
+	</div>	
+	
 </body>
 	
     </html>

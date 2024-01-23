@@ -94,6 +94,7 @@ function getData(currentUrlCsv){
 							
 				document.getElementById("vxlans").innerHTML = tab;
 				document.getElementById("tophead").innerHTML = tab_tophead;
+				//
 				filterFunction(0, lines[0].split(","));
 				filterEntry.forEach(callFilter)
 			  });		  
@@ -775,10 +776,33 @@ function loadFile(currentUrlCsv){
 				}
 				// Examine the text in the response
 				response.text().then(function(datacsv) {	
-				var lines = datacsv.split("\n"), tab = [], i; tab_tophead = [];	  
+					var lines = datacsv.split("\n"), tab_request = [];
+					
+					tabHeaderTH = "";
+					tabDropdown = "";
+					arrLine1 = lines[0].split(",")
+					for (i = 0 ; i < arrLine1.length; i++){
+							tabHeaderTH += "<td>" + arrLine1[i] + "</td>";
+					}
+					tab_request.push("<tr>"+tabHeaderTH+"</tr>");
+					document.getElementById("requests").innerHTML = tab_request;
+					
+					table = document.getElementById("requests")
+					row = table.insertRow()
+					for (i = 0 ; i < arrLine1.length; i++){
+						cell = row.insertCell(i);
+						idcell = "request_"+ i 
+						cell.outerHTML = "<td><input id="+idcell+" onblur=\"showResponse()\"></input></td>"
+					} 
+					
 					for (i = 1; i < lines.length; i++) {
+						row = table.insertRow()
 						col = lines[i].slice(0).split(",");
-						console.log(col)
+						for (j = 0 ; j < col.length; j++){
+							cell = row.insertCell(j);
+							cell.outerHTML = "<td>"+col[j]+"</td>"				
+						}
+						row.style.display = "none"
 					}
 
 				});		  
@@ -787,4 +811,111 @@ function loadFile(currentUrlCsv){
 		  .catch(function(err) {
 			console.log('Fetch Error :-S', err);
 		  });
+}
+
+function showResponse(){
+	table = document.getElementById("requests")
+	resetTable("requests")
+	inputArray = []
+	showBool = false
+	filterOn = false
+	for (y = 0; y < table.rows[0].cells.length; y++){
+		inval = document.getElementById("request_"+y).value
+		if (inval !== ""){
+			filterOn = true
+		}	
+		inputArray[y] = inval	
+	}
+	
+	if (filterOn){
+		for (i = 2; i < table.rows.length; i++){
+			showBool = false		
+			for (j = 0; j < table.rows[i].cells.length; j++){			
+				if (inputArray[j] !== ""){					
+					if ((table.rows[i].cells[j].innerHTML == inputArray[j])&&(inputArray[j]!=="")){
+						showBool = true
+					}
+					else{
+						showBool = false
+						break
+					}
+				}
+			}	
+			if (showBool){
+				table.rows[i].outerHTML = table.rows[i].outerHTML.replace("style=\"display: none;\"","")
+			}
+		}
+	}
+}
+
+function resetTable(tableName){
+	table = document.getElementById(tableName)
+	for (i = 2; i < table.rows.length; i++){
+		table.rows[i].style.display = "none"
+	}
+}
+
+function resetRequest(){
+	table = document.getElementById("requests")
+	for (y = 0; y < table.rows[0].cells.length; y++){
+		document.getElementById("request_"+y).value = ""			
+	}
+	showResponse()
+}
+
+function theMainReader(){
+		
+	    menu = urlParams.get('menu');
+		loadConfiguration(menu);
+		initData(urlParams); //out: csvfile
+		
+		var x1 = document.getElementById("urlCsv");
+		var x3 = document.getElementById("buttonRefresh");
+		var x4 = document.getElementById("urlCsvMenu");
+		
+		if (csvfile != "")
+			x1.value = csvfile
+
+		//if conf file not exists
+		if (typeof confHash === "undefined"){
+			x4.style.display = "none";
+		}		
+		else if ((platform !=null) && (csvfile != "")) {
+			//csv param in query string
+			x1.style.display = "none";
+			x3.style.display = "none";
+			x4.style.display = "none";
+		}
+		//if not csv in query string verify if file configuration is not empy or if exists
+		else if (Object.keys(confHash).length != 0){
+			x1.style.display = "none";
+			//set options values		
+			for (var key in confHash) {				
+				x4.add( new Option( key, confHash[key] ) );
+			}	
+		}
+		else {
+			x4.style.display = "none";
+		}		
+		mode = urlParams.get('mode');
+		if (mode == "response"){
+				loadFile(document.getElementById("urlCsv").value)
+				document.addEventListener("keyup", function(event) {
+					if (event.key === 'Enter') {
+						showResponse();
+					}
+				});
+				document.addEventListener("keyup", function(event) {
+					if (event.key === 'Escape') {
+						resetRequest();
+					}
+				});
+				document.getElementById("description").innerHTML ="<br><p>\"enter\" to get response</p><p>\"esc\" to reset question</p>"
+			}
+		else{
+			getData(document.getElementById("urlCsv").value);
+			document.getElementById("description").innerHTML ="<br><p>Click to hide column</p>"
+		}	
+			
+        document.getElementById("csv-source").innerHTML = "<p>data source file : <font color=\"blue\">" + document.getElementById("urlCsv").value + "</font></p>"	
 }
