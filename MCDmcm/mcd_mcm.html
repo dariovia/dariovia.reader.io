@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<body>
+<h1>Calcolo del "Massimo Comun Divisore" e del "minimo comune multiplo" tra due numeri A e B</h1>
+inserire A : <input type=number id=A  /><br><br>
+
+inserire B : <input type=number id=B  /><br><br>
+<input type=button id=myInput value=calcola onclick="mainFunction();" /><br><br>
+
+<div id="titolo2A"></div>
+<div id="OT1"></div><br>
+<div id="titolo2B"></div>
+<div id="OT2"></div><br>
+<div id="titolo3"></div>
+<div id="OT"></div><br><br>
+
+<script>
+function mainFunction(){
+	strMCDmcm = mcdmcm(A.value,B.value);
+	strScA = scomp(A.value);
+	strScB = scomp(B.value);
+	
+	titolo2A.innerHTML = '<h2>Scomposizione in fattori primi di '+A.value+ '</h2>'
+	OT1.innerHTML = strScA
+	titolo2B.innerHTML = '<h2>Scomposizione in fattori primi di ' +B.value + '</h2>'
+	OT2.innerHTML = strScB
+	titolo3.innerHTML = '<h2>Risultato</h2>'
+	OT.innerHTML = strMCDmcm
+}
+
+
+function mcdmcm(aa,bb){
+	var a, b, r, MCD, mcm;
+
+	a=parseInt(aa);
+	b=parseInt(bb);
+
+	r=a%b;
+	while(r!=0){
+		a=b;
+		b=r;
+		r=a%b;
+	}
+
+	MCD=b;
+	strScompMCD = scomp(""+MCD)
+	mcm=parseInt(A.value)*parseInt(B.value)/MCD;
+	strScompmcm = scomp(""+mcm)
+	
+	str ='MCD: '+strScompMCD+'<br><br> mcm: ' + strScompmcm;
+	return str
+}
+
+
+function scomp(nn) {
+	str='';
+	var n=parseInt(nn);
+	n=Math.abs(n);
+	var i;
+
+	do{
+	var primo=true;
+	for(i=2;i<n/2+1;i++)
+		if(n%i==0){	
+			primo=false;
+			break;
+		}
+	if(primo)
+		str+=n;
+	else {
+			str+=i+' * ';
+			n=n/i;
+		}
+	} while(!primo)
+
+	return nn + ' = '+str
+}
+
+
+
+</script>
+</body>
+</html>
