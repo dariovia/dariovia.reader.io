@@ -15,43 +15,61 @@ inserire B : <input type=number id=B  /><br><br>
 <div id="OT"></div><br><br>
 
 <script>
+//funzione lanciata quando faccio click sul bottone "calcola"
 function mainFunction(){
+	//calcolo di MCD e mcm 
 	strMCDmcm = mcdmcm(A.value,B.value);
+	//calcolo scomposizione in fattori primi di A
 	strScA = scomp(A.value);
+	//calcolo scomposizione in fattori primi di B
 	strScB = scomp(B.value);
-	
+
+	//dico al computer di scrivere il titolo "Scomposizione in fattori primi di A"
 	titolo2A.innerHTML = '<h2>Scomposizione in fattori primi di '+A.value+ '</h2>'
+	//dico al computer di scrivere la scomposizione in fattori primi di A
 	OT1.innerHTML = strScA
+	//dico al computer di scrivere il titolo "Scomposizione in fattori primi di B"
 	titolo2B.innerHTML = '<h2>Scomposizione in fattori primi di ' +B.value + '</h2>'
+	//dico al computer di scrivere la scomposizione in fattori primi di A
 	OT2.innerHTML = strScB
+	//dico al computer di scrivere il titolo "Risultato"
 	titolo3.innerHTML = '<h2>Risultato</h2>'
+	//dico al computer di scrivere i valori del calcolo di MCD e mcm
 	OT.innerHTML = strMCDmcm
 }
 
-
+/*funzione per il calcolo di MCD e mcm, chiamata in mainFunction,
+che a sua volta é chiamata quando schiaccio il bottone*/
 function mcdmcm(aa,bb){
+	//dati
 	var a, b, r, MCD, mcm;
-
+	//trasformi i dati, che sono stringhe, cioé lettere alfanumeriche, in veri numeri
 	a=parseInt(aa);
 	b=parseInt(bb);
 
+	//moltiplicazione A x B
 	r=a%b;
+	//ciclo : finché r rimane diverso da 0 esegui le istruzioni contenute 
 	while(r!=0){
 		a=b;
 		b=r;
 		r=a%b;
 	}
-
+	//alla fine in B c'é il nostro MCD
 	MCD=b;
+	//lo scompongo in fattori primi
 	strScompMCD = scomp(""+MCD)
+	//formula per il calcolo del mcm
 	mcm=parseInt(A.value)*parseInt(B.value)/MCD;
+	//lo scompongo in fattori primi
 	strScompmcm = scomp(""+mcm)
-	
+	//composizione della stringa risultato del MCD e mcm
 	str ='MCD: '+strScompMCD+'<br><br> mcm: ' + strScompmcm;
+	//la restituisco alla funzione mainFunction perché possa utilizzarla
 	return str
 }
 
-
+//funzione per la scomposizione in fattori primi
 function scomp(nn) {
 	str='';
 	var n=parseInt(nn);
