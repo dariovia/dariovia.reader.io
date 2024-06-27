@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="reader.css"> 
+<head>
+<script src="conf.js"></script> 
+<script src="vel.js"></script> 
+</head>	
+<body onload="coeffFunction()">
+<h1>Velocity calculation</h1>
+<h2>Sprint reference</h2>
+points : <input type=number id=punti  value="0" step="0.1" onchange="coeffFunction();"><br><br>
+devs : <input type=number id=devs value="0" step="0.1" onchange="coeffFunction();"><br><br>
+reference sprint length : <input type=number id=giorni value="0" step="1" onchange="coeffFunction();"><br><br>
+total days of absences : <input type=number id=absences value="0" step="0.5" onchange="coeffFunction();"><br><br>
+run percentage : <input type=number id=runp value="0" step="10" onchange="coeffFunction();"><br><br>
+<br>
+prod coefficient : <input  type=text id=coeff disabled><br><br>
+
+
+
+<h2>Current Sprint</h2>
+
+    <table id="myTable" onchange="velocit();">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>% on the project</th>
+				<th>absences</th>
+                <th><button onclick="addRow()">add new member</button></th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+<br>
+
+
+current sprint length : <input type=number id=sprintLength value="10" step="1" onchange="velocit();"><br><br>
+current run percentage : <input type=number id=crunp value="0" step="5" onchange="velocit();"><br><br>
+<hr>
+points next sprint : <div id=velo></div>
+<script>
+initSprintReference()
+initTeams()
+initCurrentSprint()
+velocit()
+</script>
+</body>
+</html>
