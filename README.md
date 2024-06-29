@@ -31,3 +31,6 @@ Opzioni principali :
 * csv=<id file in conf.js> : per caricare direttamente file
 * mode=response : per andare in modo domanda risposta
 * <nome campo>=<valore filtro> : per filtrare il file su <valore filtro>
+
+velocità sprint
+* https://dariovia.github.io/dariovia.reader.io/velocity/velocity.html
