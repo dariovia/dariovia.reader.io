@@ -8,7 +8,10 @@
 <body>
     <h1>Geolocation Example</h1>
     <button onclick="getLocation()">Get My Location</button>
+	<br><br>
     <div id="output"></div>
+	<br>
+	<div id="linkmap"></div>
 
     <script>
         function getLocation() {
@@ -23,6 +26,16 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             document.getElementById("output").innerHTML = `Latitude: ${latitude} <br> Longitude: ${longitude}`;
+			url = "https:\/\/www.google.com\/maps?q="+ latitude+","+longitude;		
+			
+			// Creazione del nuovo elemento <a>
+			var a = document.createElement('a');
+			var linkText = "Visualizza su Google Maps";
+			a.href = url;
+			a.textContent = linkText;
+			a.target = "_blank";
+
+			document.getElementById("linkmap").appendChild(a);
         }
 
         function showError(error) {
