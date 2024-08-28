@@ -7,30 +7,65 @@
 </head>
 <body>
     <h1>Geolocation Example</h1>
-    <button onclick="getLocation()">Get My Location</button>
+    <button onclick="getLocation()">Dove sono ?</button>
 	<br><br>
     <div id="output"></div>
 	<br>
 	<div id="linkmap"></div>
+	<!-- Bottone per copiare il link -->
+	<br>
+	<button id="bottoneCopia" onclick="copiaLink()" style="display:none;">Copia messaggio</button>
+
+	<!-- Messaggio di conferma -->
+	<p id="messaggio" style="display:none; color:green;">Link copiato!</p>
 
     <script>
+	
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, showError);
+				var bottone = document.getElementById("bottoneCopia");
+				bottone.style.display = "inline-block"; 
+
             } else {
                 document.getElementById("output").innerHTML = "Geolocation is not supported by this browser.";
             }
         }
+		
+		function copiaLink() {
+			// Trova l'elemento input con l'ID "linkDaCopiare"
+			var stringaDaCopiare = document.getElementById("linkDaCopiare");
+			console.log(stringaDaCopiare.href)
+			 navigator.clipboard.writeText(stringaDaCopiare).then(function() {
+				// Mostra un messaggio di conferma
+				var messaggio = document.getElementById("messaggio");
+				messaggio.style.display = "block";
+
+				// Nasconde il messaggio dopo 2 secondi
+				setTimeout(function() {
+					messaggio.style.display = "none";
+				}, 2000);
+			}).catch(function(error) {
+				console.error("Errore durante la copia: ", error);
+			});
+		}
 
         function showPosition(position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
-            document.getElementById("output").innerHTML = `Latitude: ${latitude} <br> Longitude: ${longitude}`;
+			const accuracy = position.coords.accuracy;
+			const timestamp = position.coords.timestamp
+			
+			
+			
+			
+            document.getElementById("output").innerHTML = `Latitude: ${latitude} <br> Longitude: ${longitude} <br>Accuratezza: ${accuracy} metri <br> Timestamp: ${timestamp}`;
 			url = "https:\/\/www.google.com\/maps?q="+ latitude+","+longitude;		
 			
 			// Creazione del nuovo elemento <a>
 			var a = document.createElement('a');
 			var linkText = "Visualizza su Google Maps";
+			a.id = "linkDaCopiare"
 			a.href = url;
 			a.textContent = linkText;
 			a.target = "_blank";
