@@ -6,7 +6,8 @@ function loadConfiguration(conf) {
 				spesa: "https://dariovia.github.io/dariovia.reader.io/reader/csv/spesa.csv",
 				altro: "https://dariovia.github.io/dariovia.reader.io/reader/csv/altro.csv",
 				chimica: "https://dariovia.github.io/dariovia.reader.io/reader/csv/chimica.csv",
-				latino: "https://dariovia.github.io/dariovia.reader.io/reader/csv/latino.csv"
+				latino: "https://dariovia.github.io/dariovia.reader.io/reader/csv/latino.csv",
+				verbi: "https://dariovia.github.io/dariovia.reader.io/reader/csv/verbi.csv"
 			}
 			break;
 		default:
