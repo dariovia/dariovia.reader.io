@@ -818,32 +818,40 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function getRandomNumbersInRange(min, max, count) {
-    if (max - min  < count) {
-		count = max - min -1
-        //throw new Error("L'intervallo è troppo piccolo per scegliere abbastanza numeri unici!");
-		
-    }
-
-    const numbers = new Set();
+function getRandomNumbersFromSet(set, n) {
+    const arrayFromSet = Array.from(set); // Converte il Set in un array
     
-    while (numbers.size < count) {
-        let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-        numbers.add(randomNum); // Set garantisce unicità
+    if (n > arrayFromSet.length) {
+        throw new Error("N è maggiore del numero di elementi disponibili nell'insieme!");
     }
 
-    return Array.from(numbers);
+    const shuffled = arrayFromSet.sort(() => Math.random() - 0.5); // Mescola gli elementi
+    return shuffled.slice(0, n); // Prende i primi N elementi mescolati
 }
 
 function haveQuestion(){
 	table = document.getElementById("requests")
 	rowRand = getRandomInt(2, table.rows.length-1)
-	colRandSet = getRandomNumbersInRange(0, table.rows[0].cells.length-1,4)
+	
+	rangeCol = new Set()
+	
+	for (i=0; i< table.rows[0].cells.length; i++){
+		if (table.rows[0].cells[i].innerText.startsWith("*") == false){			
+			rangeCol.add(i); 
+		}		
+	}	
+	
+	if (rangeCol.size - 1 > 4)
+		count = 4
+	else
+		count = rangeCol.size - 1
+	
+	colRandSet = getRandomNumbersFromSet(rangeCol,count)
 	stringRequest = "<div id=\"domanda\"><br>vorrei sapere :"
 	
 	for (i=0; i< colRandSet.length; i++){
 		//console.log(table.rows[rowRand].cells[colRandSet[i]].innerText)
-		//console.log(document.getElementById("request_"+colRandSet[i]))
+		//console.log(document.getElementById("request_"+colRandSet[i]).value) 
 		document.getElementById("request_"+colRandSet[i]).value = table.rows[rowRand].cells[colRandSet[i]].innerText
 		stringRequest = stringRequest + "<br>" + table.rows[0].cells[colRandSet[i]].innerText + " = " + table.rows[rowRand].cells[colRandSet[i]].innerText
 	}
