@@ -792,7 +792,8 @@ function loadFile(currentUrlCsv){
 					for (i = 0 ; i < arrLine1.length; i++){
 						cell = row.insertCell(i);
 						idcell = "request_"+ i 
-						cell.outerHTML = "<td><input id="+idcell+" onblur=\"showResponse()\"></input></td>"
+						cell.outerHTML = "<td><input id="+idcell+" onblur=\"setButtons()\"></input></td>"
+						//cell.outerHTML = "<td><input id="+idcell+" ></input></td>"
 					} 
 					
 					for (i = 1; i < lines.length; i++) {
@@ -811,6 +812,39 @@ function loadFile(currentUrlCsv){
 		  .catch(function(err) {
 			console.log('Fetch Error :-S', err);
 		  });
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomNumbersInRange(min, max, count) {
+    if (max - min + 1 < count) {
+        throw new Error("L'intervallo è troppo piccolo per scegliere abbastanza numeri unici!");
+    }
+
+    const numbers = new Set();
+    
+    while (numbers.size < count) {
+        let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+        numbers.add(randomNum); // Set garantisce unicità
+    }
+
+    return Array.from(numbers);
+}
+
+function haveQuestion(){
+	table = document.getElementById("requests")
+	rowRand = getRandomInt(0, table.rows.length-1)
+	colRandSet = getRandomNumbersInRange(2, table.rows[0].cells.length-1,4)
+	
+	for (i=0; i< colRandSet.length; i++){
+		//console.log(table.rows[rowRand].cells[colRandSet[i]].innerText)
+		//console.log(document.getElementById("request_"+colRandSet[i]))
+		document.getElementById("request_"+colRandSet[i]).value = table.rows[rowRand].cells[colRandSet[i]].innerText
+	}
+	document.getElementById("haveQuestion").disabled = true
+	document.getElementById("showResponse").disabled = false
 }
 
 function showResponse(){
@@ -846,6 +880,7 @@ function showResponse(){
 			}
 		}
 	}
+	document.getElementById("showResponse").disabled = true
 }
 
 function resetTable(tableName){
@@ -861,6 +896,13 @@ function resetRequest(){
 		document.getElementById("request_"+y).value = ""			
 	}
 	showResponse()
+	document.getElementById("haveQuestion").disabled = false
+	document.getElementById("showResponse").disabled = true
+}
+
+function setButtons(){
+	document.getElementById("haveQuestion").disabled = true
+	document.getElementById("showResponse").disabled = false
 }
 
 function theMainReader(){
@@ -900,6 +942,12 @@ function theMainReader(){
 		mode = urlParams.get('mode');
 		if (mode == "response"){
 				loadFile(document.getElementById("urlCsv").value)
+
+				document.addEventListener("keyup", function(event) {
+					if (event.key === 'Alt') {
+						haveQuestion();
+					}
+				});
 				document.addEventListener("keyup", function(event) {
 					if (event.key === 'Enter') {
 						showResponse();
@@ -910,7 +958,7 @@ function theMainReader(){
 						resetRequest();
 					}
 				});
-				document.getElementById("description").innerHTML ="<br><p>\"enter\" to get response</p><p>\"esc\" to reset question</p>"
+				document.getElementById("description").innerHTML ="<br><p>\"alt\" to have a question </p><button  id= \"haveQuestion\" onclick=\"haveQuestion()\">question</button><br><p>\"enter\" to get response</p><button id= \"showResponse\"  disabled onclick=\"showResponse()\">response</button><p>\"esc\" to reset question</p><button id= \"resetRequest\"   onclick=\"resetRequest()\">reset</button>"
 			}
 		else{
 			getData(document.getElementById("urlCsv").value);
