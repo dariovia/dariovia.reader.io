@@ -8,7 +8,7 @@ normale:
 
 menu: 
 	scegliere dal menu 
-* https://dariovia.github.io/dariovia.reader.io/reader/reader.html?menu=data&csv=compiti
+* https://dariovia.github.io/dariovia.reader.io/reader/reader.html?menu=data
 
 carica file csv specifico:	
 * https://dariovia.github.io/dariovia.reader.io/reader/reader.html?menu=data&csv=chimica
@@ -25,6 +25,7 @@ modo domanda risposta
 
 modo domanda risposta con file caricato
 * https://dariovia.github.io/dariovia.reader.io/reader/reader.html?menu=data&csv=chimica&mode=response
+* https://dariovia.github.io/dariovia.reader.io/reader/reader.html?menu=data&csv=latino&mode=response
 	
 Opzioni principali :
 * menu=data : per aver il menu 

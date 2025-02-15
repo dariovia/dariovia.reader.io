@@ -820,7 +820,8 @@ function getRandomInt(min, max) {
 
 function getRandomNumbersInRange(min, max, count) {
     if (max - min + 1 < count) {
-        throw new Error("L'intervallo è troppo piccolo per scegliere abbastanza numeri unici!");
+		count = max - min -2
+        //throw new Error("L'intervallo è troppo piccolo per scegliere abbastanza numeri unici!");
     }
 
     const numbers = new Set();
