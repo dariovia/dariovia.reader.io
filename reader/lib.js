@@ -819,11 +819,12 @@ function getRandomInt(min, max) {
 }
 
 function getRandomNumbersInRange(min, max, count) {
-    if (max - min + 1 < count) {
-		count = max - min -2
+    if (max - min  < count) {
+		count = max - min -1
         //throw new Error("L'intervallo è troppo piccolo per scegliere abbastanza numeri unici!");
+		
     }
-
+console.log(min, max, count)
     const numbers = new Set();
     
     while (numbers.size < count) {
@@ -836,8 +837,8 @@ function getRandomNumbersInRange(min, max, count) {
 
 function haveQuestion(){
 	table = document.getElementById("requests")
-	rowRand = getRandomInt(0, table.rows.length-1)
-	colRandSet = getRandomNumbersInRange(2, table.rows[0].cells.length-1,4)
+	rowRand = getRandomInt(2, table.rows.length-1)
+	colRandSet = getRandomNumbersInRange(0, table.rows[0].cells.length-1,4)
 	
 	for (i=0; i< colRandSet.length; i++){
 		//console.log(table.rows[rowRand].cells[colRandSet[i]].innerText)
