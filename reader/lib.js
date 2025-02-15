@@ -824,7 +824,7 @@ function getRandomNumbersInRange(min, max, count) {
         //throw new Error("L'intervallo è troppo piccolo per scegliere abbastanza numeri unici!");
 		
     }
-console.log(min, max, count)
+
     const numbers = new Set();
     
     while (numbers.size < count) {
@@ -839,12 +839,16 @@ function haveQuestion(){
 	table = document.getElementById("requests")
 	rowRand = getRandomInt(2, table.rows.length-1)
 	colRandSet = getRandomNumbersInRange(0, table.rows[0].cells.length-1,4)
+	stringRequest = "<div id=\"domanda\"><br>vorrei sapere :"
 	
 	for (i=0; i< colRandSet.length; i++){
 		//console.log(table.rows[rowRand].cells[colRandSet[i]].innerText)
 		//console.log(document.getElementById("request_"+colRandSet[i]))
 		document.getElementById("request_"+colRandSet[i]).value = table.rows[rowRand].cells[colRandSet[i]].innerText
+		stringRequest = stringRequest + "<br>" + table.rows[0].cells[colRandSet[i]].innerText + " = " + table.rows[rowRand].cells[colRandSet[i]].innerText
 	}
+	//console.log(document.getElementById("domanda"))
+	document.getElementById("domanda").outerHTML = stringRequest+"</div>"
 	document.getElementById("haveQuestion").disabled = true
 	document.getElementById("showResponse").disabled = false
 }
@@ -900,6 +904,7 @@ function resetRequest(){
 	showResponse()
 	document.getElementById("haveQuestion").disabled = false
 	document.getElementById("showResponse").disabled = true
+	document.getElementById("domanda").innerText = ""
 }
 
 function setButtons(){
@@ -960,7 +965,7 @@ function theMainReader(){
 						resetRequest();
 					}
 				});
-				document.getElementById("description").innerHTML ="<br><p>\"alt\" to have a question </p><button  id= \"haveQuestion\" onclick=\"haveQuestion()\">question</button><br><p>\"enter\" to get response</p><button id= \"showResponse\"  disabled onclick=\"showResponse()\">response</button><p>\"esc\" to reset question</p><button id= \"resetRequest\"   onclick=\"resetRequest()\">reset</button>"
+				document.getElementById("description").innerHTML ="<br><p>\"alt\" to have a question &nbsp&nbsp&nbsp&nbsp <button  id= \"haveQuestion\" onclick=\"haveQuestion()\">question</button></p><div id=\"domanda\"></div><br><p>\"enter\" to get response &nbsp&nbsp&nbsp&nbsp<button id= \"showResponse\"  disabled onclick=\"showResponse()\">response</button></p><br><p>\"esc\" to reset question &nbsp&nbsp&nbsp&nbsp<button id= \"resetRequest\"   onclick=\"resetRequest()\">reset</button></p><br>"
 			}
 		else{
 			getData(document.getElementById("urlCsv").value);

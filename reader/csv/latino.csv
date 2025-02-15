@@ -1,216 +1,216 @@
-verbo,attivo/passivo,modo,tempo,persona,coniugazione,formaVerbale,traduzione
-laudo,attivo ,indicativo,presente,1a sing.,prima,laudo,io lodo
-laudo,attivo ,indicativo,presente,2a sing.,prima,laudas,tu lodi
-laudo,attivo ,indicativo,presente,3a sing.,prima,laudat,egli loda
-laudo,attivo ,indicativo,presente,1a plu.,prima,laudāmus,noi lodiamo
-laudo,attivo ,indicativo,presente,2a plu.,prima,laudātis,voi lodate
-laudo,attivo ,indicativo,presente,3a plu.,prima,laudant,essi lodano
-laudo,passivo,indicativo,presente,1a sing.,prima,laudor,io sono lodato
-laudo,passivo,indicativo,presente,2a sing.,prima,laudāris,tu sei lodato
-laudo,passivo,indicativo,presente,3a sing.,prima,laudātur,egli è lodato
-laudo,passivo,indicativo,presente,1a plu.,prima,laudāmur,noi siamo lodati
-laudo,passivo,indicativo,presente,2a plu.,prima,laudamĭni,voi siete lodati
-laudo,passivo,indicativo,presente,3a plu.,prima,laudāntur,essi sono lodati
-sum,attivo,imperativo,presente,singolare,propria,es,tu sei
-sum,attivo,imperativo,presente,plurale,propria,este,voi siete
-sum,attivo,infinito,presente,,propria,esse,essere
-sum,attivo,indicativo,presente,1a sing.,propria,sum,io sono
-sum,attivo,indicativo,presente,2a sing.,propria,es,tu sei
-sum,attivo,indicativo,presente,3a sing.,propria,este,voi siete
-sum,attivo,indicativo,presente,1a plu.,propria,sumus,noi siamo
-sum,attivo,indicativo,presente,2a plu.,propria,estis,voi siete
-sum,attivo,indicativo,presente,3a plu.,propria,sunt,essi sono
-moneo,attivo,indicativo,presente,1a sing.,seconda,moneo,io ammonisco
-moneo,attivo,indicativo,presente,2a sing.,seconda,mones,tu ammonisci
-moneo,attivo,indicativo,presente,3a sing.,seconda,monet,egli ammonisce
-moneo,attivo,indicativo,presente,1a plu.,seconda,monēmus,noi ammoniamo
-moneo,attivo,indicativo,presente,2a plu.,seconda,monētis,voi ammonite
-moneo,attivo,indicativo,presente,3a plu.,seconda,monent,essi ammoniscono
-moneo,passivo,indicativo,presente,1a sing.,seconda,monĕor,io sono ammonito
-moneo,passivo,indicativo,presente,2a sing.,seconda,monēris,tu sei ammonito
-moneo,passivo,indicativo,presente,3a sing.,seconda,monētur,egli è ammonito
-moneo,passivo,indicativo,presente,1a plu.,seconda,monēmur,noi siamo ammoniti
-moneo,passivo,indicativo,presente,2a plu.,seconda,monemĭni,voi siete ammoniti
-moneo,passivo,indicativo,presente,3a plu.,seconda,monēntur,essi sono ammoniti
-lego,attivo,indicativo,presente,1a sing.,terza,lego,io leggo
-lego,attivo,indicativo,presente,2a sing.,terza,legis,tu leggi
-lego,attivo,indicativo,presente,3a sing.,terza,legit,egli legge
-lego,attivo,indicativo,presente,1a plu.,terza,legĭmus,noi leggiamo
-lego,attivo,indicativo,presente,2a plu.,terza,legĭtis,voi leggete
-lego,attivo,indicativo,presente,3a plu.,terza,legunt,essi leggono
-lego,passivo,indicativo,presente,1a sing.,terza,legor,io sono letto
-lego,passivo,indicativo,presente,2a sing.,terza,legĕris,tu sei letto
-lego,passivo,indicativo,presente,3a sing.,terza,legĭtur,egli è letto
-lego,passivo,indicativo,presente,1a plu.,terza,legĭmur,noi siamo letti
-lego,passivo,indicativo,presente,2a plu.,terza,legimĭni,voi siete letti
-lego,passivo,indicativo,presente,3a plu.,terza,legūntur,essi sono letti
-audio,attivo,indicativo,presente,1a sing.,quarta,audio,io ascolto
-audio,attivo,indicativo,presente,2a sing.,quarta,audis,tu ascolti
-audio,attivo,indicativo,presente,3a sing.,quarta,audit,egli ascolta
-audio,attivo,indicativo,presente,1a plu.,quarta,audīmus,noi ascoltiamo
-audio,attivo,indicativo,presente,2a plu.,quarta,audītis,voi ascoltate
-audio,attivo,indicativo,presente,3a plu.,quarta,audiunt,essi ascoltano
-audio,passivo,indicativo,presente,1a sing.,quarta,audior,io sono ascoltato
-audio,passivo,indicativo,presente,2a sing.,quarta,audīris,tu sei ascoltato
-audio,passivo,indicativo,presente,3a sing.,quarta,audītur,egli è ascoltato
-audio,passivo,indicativo,presente,1a plu.,quarta,audīmur,noi siamo ascoltati
-audio,passivo,indicativo,presente,2a plu.,quarta,audimĭni,voi siete ascoltati
-audio,passivo,indicativo,presente,3a plu.,quarta,audiūntur,essi sono ascoltati
-laudo ,attivo,imperativo,presente,singolare,prima,lauda!,loda!
-laudo ,attivo,imperativo,presente,plurale,prima,laudate!,lodate!
-moneo,attivo,imperativo,presente,singolare,seconda,mone!,ammonisci!
-moneo,attivo,imperativo,presente,plurale,seconda,monete!,ammonite!
-lego,attivo,imperativo,presente,singolare,terza,lege!,leggi!
-lego,attivo,imperativo,presente,plurale,terza,legite!,leggete!
-audio,attivo,imperativo,presente,singolare,quarta,audi!,ascolta!
-audio,attivo,imperativo,presente,plurale,quarta,audite!,ascoltate!
-capio,attivo,indicativo,presente,1a sing.,mista,capio,io prendo
-capio,attivo,indicativo,presente,2a sing.,mista,capis,tu prendi
-capio,attivo,indicativo,presente,3a sing.,mista,capit,egli prende
-capio,attivo,indicativo,presente,1a plu.,mista,capimus,noi prendiamo
-capio,attivo,indicativo,presente,2a plu.,mista,capitis,voi prendete
-capio,attivo,indicativo,presente,3a plu.,mista,capiunt,essi prendono
-capio,passivo,indicativo,presente,1a sing.,mista,capior,io sono preso
-capio,passivo,indicativo,presente,2a sing.,mista,caperis,tu sei preso
-capio,passivo,indicativo,presente,3a sing.,mista,capitur,egli è preso
-capio,passivo,indicativo,presente,1a plu.,mista,capimur,noi siamo presi
-capio,passivo,indicativo,presente,2a plu.,mista,capimini,voi siete presi
-capio,passivo,indicativo,presente,3a plu.,mista,capiuntur,essi sono presi
-capio,attivo,imperativo,presente,singolare,mista,cape!,prendi!
-capio,attivo,imperativo,presente,plurale,mista,capite!,prendete!
-capio,passivo,imperativo,presente,singolare,mista,capere!,prendere
-capio,passivo,imperativo,presente,plurale,mista,capimini!,preso!
-capio,attivo,infinito,presente,---,mista,capere,io ero
-capio,passivo,infinito,presente,---,mista,capi,tu eri
-sum,attivo,indicativo,imperfetto,1a sing.,propria,eram,egli era
-sum,attivo,indicativo,imperfetto,2a sing.,propria,eras,noi eravamo
-sum,attivo,indicativo,imperfetto,3a sing.,propria,erat,voi eravate
-sum,attivo,indicativo,imperfetto,1a plu.,propria,eramus,essi erano
-sum,attivo,indicativo,imperfetto,2a plu.,propria,eratis,voi eravate
-sum,attivo,indicativo,imperfetto,3a plu.,propria,erant,essi erano
-laudo,attivo,indicativo,imperfetto,1a sing.,prima,laudabam,io lodavo
-laudo,attivo,indicativo,imperfetto,2a sing.,prima,laudabas,tu lodavi
-laudo,attivo,indicativo,imperfetto,3a sing.,prima,laudabat,egli lodava
-laudo,attivo,indicativo,imperfetto,1a plu.,prima,laudabamus,noi lodavamo
-laudo,attivo,indicativo,imperfetto,2a plu.,prima,laudabatis,voi lodavate
-laudo,attivo,indicativo,imperfetto,3a plu.,prima,laudabant,essi lodavano
-moneo,attivo,indicativo,imperfetto,1a sing.,seconda,monebam,io ammonivo
-moneo,attivo,indicativo,imperfetto,2a sing.,seconda,monebas,tu ammonivi
-moneo,attivo,indicativo,imperfetto,3a sing.,seconda,monebat,egli ammoniva
-moneo,attivo,indicativo,imperfetto,1a plu.,seconda,monebamus,noi ammonivamo
-moneo,attivo,indicativo,imperfetto,2a plu.,seconda,monebatis,voi ammonivate
-moneo,attivo,indicativo,imperfetto,3a plu.,seconda,monebant,essi ammonivano
-lego,attivo,indicativo,imperfetto,1a sing.,terza,legebam,io leggevo
-lego,attivo,indicativo,imperfetto,2a sing.,terza,legebas,tu leggevi
-lego,attivo,indicativo,imperfetto,3a sing.,terza,legebat,egli leggeva
-lego,attivo,indicativo,imperfetto,1a plu.,terza,legebamus,noi leggevamo
-lego,attivo,indicativo,imperfetto,2a plu.,terza,legebatis,voi leggevate
-lego,attivo,indicativo,imperfetto,3a plu.,terza,legebant,essi leggevano
-audio,attivo,indicativo,imperfetto,1a sing.,quarta,audiebam,io ascoltavo
-audio,attivo,indicativo,imperfetto,2a sing.,quarta,audiebas,tu ascoltavi
-audio,attivo,indicativo,imperfetto,3a sing.,quarta,audiebat,egli ascoltava
-audio,attivo,indicativo,imperfetto,1a plu.,quarta,audiebamus,noi ascoltavamo
-audio,attivo,indicativo,imperfetto,2a plu.,quarta,audiebatis,voi ascoltavate
-audio,attivo,indicativo,imperfetto,3a plu.,quarta,audiebant,essi ascoltavano
-capio,attivo,indicativo,imperfetto,1a sing.,mista,capiebam,io prendevo
-capio,attivo,indicativo,imperfetto,2a sing.,mista,capiebas,tu prendevi
-capio,attivo,indicativo,imperfetto,3a sing.,mista,capiebat,egli prendeva
-capio,attivo,indicativo,imperfetto,1a plu.,mista,capiebamus,noi prendevamo
-capio,attivo,indicativo,imperfetto,2a plu.,mista,capiebatis,voi prendevate
-capio,attivo,indicativo,imperfetto,3a plu.,mista,capiebant,essi prendevano
-laudo,passivo,indicativo,imperfetto,1a sing.,prima,laudabar,io ero lodato
-laudo,passivo,indicativo,imperfetto,2a sing.,prima,laudabaris,tu eri lodato
-laudo,passivo,indicativo,imperfetto,3a sing.,prima,laudabatur,egli era lodato
-laudo,passivo,indicativo,imperfetto,1a plu.,prima,laudabamur,noi eravamo lodati
-laudo,passivo,indicativo,imperfetto,2a plu.,prima,laudabamini,voi eravate lodati
-laudo,passivo,indicativo,imperfetto,3a plu.,prima,laudabantur,essi erano lodati
-moneo,passivo,indicativo,imperfetto,1a sing.,seconda,monebar,io ero ammonito
-moneo,passivo,indicativo,imperfetto,2a sing.,seconda,monebaris,tu eri ammonito
-moneo,passivo,indicativo,imperfetto,3a sing.,seconda,monebatur,egli era ammonito
-moneo,passivo,indicativo,imperfetto,1a plu.,seconda,monebamur,noi eravamo ammoniti
-moneo,passivo,indicativo,imperfetto,2a plu.,seconda,monebamini,voi eravate ammoniti
-moneo,passivo,indicativo,imperfetto,3a plu.,seconda,monebantur,essi erano ammoniti
-lego,passivo,indicativo,imperfetto,1a sing.,terza,legebar,io ero letto
-lego,passivo,indicativo,imperfetto,2a sing.,terza,legebaris,tu eri letto
-lego,passivo,indicativo,imperfetto,3a sing.,terza,legebatur,egli era letto
-lego,passivo,indicativo,imperfetto,1a plu.,terza,legebamur,noi eravamo letti
-lego,passivo,indicativo,imperfetto,2a plu.,terza,legebamini,voi eravate letti
-lego,passivo,indicativo,imperfetto,3a plu.,terza,legebantur,essi erano letti
-audio,passivo,indicativo,imperfetto,1a sing.,quarta,audiebar,io ero ascoltato
-audio,passivo,indicativo,imperfetto,2a sing.,quarta,audiebaris,tu eri ascoltato
-audio,passivo,indicativo,imperfetto,3a sing.,quarta,audiebatur,egli era ascoltato
-audio,passivo,indicativo,imperfetto,1a plu.,quarta,audiebamur,noi eravamo ascoltati
-audio,passivo,indicativo,imperfetto,2a plu.,quarta,audiebamini,voi eravate ascoltati
-audio,passivo,indicativo,imperfetto,3a plu.,quarta,audiebantur,essi erano ascoltati
-capio,passivo,indicativo,imperfetto,1a sing.,mista,capiebar,io ero preso
-capio,passivo,indicativo,imperfetto,2a sing.,mista,capiebaris,tu eri preso
-capio,passivo,indicativo,imperfetto,3a sing.,mista,capiebatur,egli era preso
-capio,passivo,indicativo,imperfetto,1a plu.,mista,capiebamur,noi eravamo presi
-capio,passivo,indicativo,imperfetto,2a plu.,mista,capiebamini,voi eravate presi
-capio,passivo,indicativo,imperfetto,3a plu.,mista,capiebantur,essi erano presi
-laudo,attivo,indicativo,futuro,1a sing.,prima,laudabo,io loderò
-laudo,attivo,indicativo,futuro,2a sing.,prima,laudabis,tu loderai
-laudo,attivo,indicativo,futuro,3a sing.,prima,laudabit,egli loderà
-laudo,attivo,indicativo,futuro,1a plu.,prima,laudabimus,noi loderemo
-laudo,attivo,indicativo,futuro,2a plu.,prima,laudabitis,voi loderete
-laudo,attivo,indicativo,futuro,3a plu.,prima,laudabunt,essi loderanno
-moneo,attivo,indicativo,futuro,1a sing.,seconda,monebo,io ammonirò
-moneo,attivo,indicativo,futuro,2a sing.,seconda,monebis,tu ammonirai
-moneo,attivo,indicativo,futuro,3a sing.,seconda,monebit,egli ammonirà
-moneo,attivo,indicativo,futuro,1a plu.,seconda,monebimus,noi ammoniremo
-moneo,attivo,indicativo,futuro,2a plu.,seconda,monebitis,voi ammonirete
-moneo,attivo,indicativo,futuro,3a plu.,seconda,monebunt,essi ammoniranno
-lego,attivo,indicativo,futuro,1a sing.,terza,legam,io leggerò
-lego,attivo,indicativo,futuro,2a sing.,terza,leges,tu leggerai
-lego,attivo,indicativo,futuro,3a sing.,terza,leget,egli leggerà
-lego,attivo,indicativo,futuro,1a plu.,terza,legemus,noi leggeremo
-lego,attivo,indicativo,futuro,2a plu.,terza,legetis,voi leggerete
-lego,attivo,indicativo,futuro,3a plu.,terza,legent,essi leggeranno
-audio,attivo,indicativo,futuro,1a sing.,quarta,audiam,io ascolterò
-audio,attivo,indicativo,futuro,2a sing.,quarta,audies,tu ascolterai
-audio,attivo,indicativo,futuro,3a sing.,quarta,audiet,egli ascolterà
-audio,attivo,indicativo,futuro,1a plu.,quarta,audiemus,noi ascolteremo
-audio,attivo,indicativo,futuro,2a plu.,quarta,audietis,voi ascolterete
-audio,attivo,indicativo,futuro,3a plu.,quarta,audient,essi ascolteranno
-capio,attivo,indicativo,futuro,1a sing.,mista,capiam,io prenderò
-capio,attivo,indicativo,futuro,2a sing.,mista,capies,tu prenderai
-capio,attivo,indicativo,futuro,3a sing.,mista,capiet,egli prenderà
-capio,attivo,indicativo,futuro,1a plu.,mista,capiemus,noi prenderemo
-capio,attivo,indicativo,futuro,2a plu.,mista,capietis,voi prenderete
-capio,attivo,indicativo,futuro,3a plu.,mista,capient,essi prenderanno
-laudo,passivo,indicativo,futuro,1a sing.,prima,laudabor,io sarò lodato
-laudo,passivo,indicativo,futuro,2a sing.,prima,laudaberis,tu sarai lodato
-laudo,passivo,indicativo,futuro,3a sing.,prima,laudabitur,egli sarà lodato
-laudo,passivo,indicativo,futuro,1a plu.,prima,laudabimur,noi saremo lodati
-laudo,passivo,indicativo,futuro,2a plu.,prima,laudabimini,voi sarete lodati
-laudo,passivo,indicativo,futuro,3a plu.,prima,laudabuntur,essi saranno lodati
-moneo,passivo,indicativo,futuro,1a sing.,seconda,monebor,io sarò ammonito
-moneo,passivo,indicativo,futuro,2a sing.,seconda,moneberis,tu sarai ammonito
-moneo,passivo,indicativo,futuro,3a sing.,seconda,monebitur,egli sarà ammonito
-moneo,passivo,indicativo,futuro,1a plu.,seconda,monebimur,noi saremo ammoniti
-moneo,passivo,indicativo,futuro,2a plu.,seconda,monebimini,voi sarete ammoniti
-moneo,passivo,indicativo,futuro,3a plu.,seconda,monebuntur,essi saranno ammoniti
-lego,passivo,indicativo,futuro,1a sing.,terza,legebor,io sarò letto
-lego,passivo,indicativo,futuro,2a sing.,terza,legeberis,tu sarai letto
-lego,passivo,indicativo,futuro,3a sing.,terza,legetur,egli sarà letto
-lego,passivo,indicativo,futuro,1a plu.,terza,legemur,noi saremo letti
-lego,passivo,indicativo,futuro,2a plu.,terza,legemini,voi sarete letti
-lego,passivo,indicativo,futuro,3a plu.,terza,legentur,essi saranno letti
-audio,passivo,indicativo,futuro,1a sing.,quarta,audiamur,noi saremo ascoltati
-audio,passivo,indicativo,futuro,2a sing.,quarta,audiemini,voi sarete ascoltati
-audio,passivo,indicativo,futuro,3a sing.,quarta,audietur,egli sarà ascoltato
-audio,passivo,indicativo,futuro,1a plu.,quarta,audiemur,noi saremo ascoltati
-audio,passivo,indicativo,futuro,2a plu.,quarta,audiemini,voi sarete ascoltati
-audio,passivo,indicativo,futuro,3a plu.,quarta,audientur,essi saranno ascoltati
-capio,passivo,indicativo,futuro,1a sing.,mista,capiar,io sarò preso
-capio,passivo,indicativo,futuro,2a sing.,mista,capieris,tu sarai preso
-capio,passivo,indicativo,futuro,3a sing.,mista,capietur,egli sarà preso
-capio,passivo,indicativo,futuro,1a plu.,mista,capiemur,noi saremo presi
-capio,passivo,indicativo,futuro,2a plu.,mista,capiemini,voi sarete presi
-capio,passivo,indicativo,futuro,3a plu.,mista,capientur,essi saranno presi
-sum,attivo,indicativo,futuro,1a sing.,propria,ero,io sarò
-sum,attivo,indicativo,futuro,2a sing.,propria,eris,tu sarai
-sum,attivo,indicativo,futuro,3a sing.,propria,erit,egli sarà
-sum,attivo,indicativo,futuro,1a plu.,propria,erimus,noi saremo
-sum,attivo,indicativo,futuro,2a plu.,propria,eritis,voi sarete
-sum,attivo,indicativo,futuro,3a plu.,propria,erunt,essi saranno
+voce del verbo,forma,modo,tempo,persona,coniugazione,forma verbale,traduzione
+laudo,attiva,indicativo,presente,1a sing.,prima,laudo,io lodo
+laudo,attiva,indicativo,presente,2a sing.,prima,laudas,tu lodi
+laudo,attiva,indicativo,presente,3a sing.,prima,laudat,egli loda
+laudo,attiva,indicativo,presente,1a plu.,prima,laudāmus,noi lodiamo
+laudo,attiva,indicativo,presente,2a plu.,prima,laudātis,voi lodate
+laudo,attiva,indicativo,presente,3a plu.,prima,laudant,essi lodano
+laudo,passiva,indicativo,presente,1a sing.,prima,laudor,io sono lodato
+laudo,passiva,indicativo,presente,2a sing.,prima,laudāris,tu sei lodato
+laudo,passiva,indicativo,presente,3a sing.,prima,laudātur,egli è lodato
+laudo,passiva,indicativo,presente,1a plu.,prima,laudāmur,noi siamo lodati
+laudo,passiva,indicativo,presente,2a plu.,prima,laudamĭni,voi siete lodati
+laudo,passiva,indicativo,presente,3a plu.,prima,laudāntur,essi sono lodati
+sum,attiva,imperativo,presente,singolare,propria,es,tu sei
+sum,attiva,imperativo,presente,plurale,propria,este,voi siete
+sum,attiva,infinito,presente,,propria,esse,essere
+sum,attiva,indicativo,presente,1a sing.,propria,sum,io sono
+sum,attiva,indicativo,presente,2a sing.,propria,es,tu sei
+sum,attiva,indicativo,presente,3a sing.,propria,este,voi siete
+sum,attiva,indicativo,presente,1a plu.,propria,sumus,noi siamo
+sum,attiva,indicativo,presente,2a plu.,propria,estis,voi siete
+sum,attiva,indicativo,presente,3a plu.,propria,sunt,essi sono
+moneo,attiva,indicativo,presente,1a sing.,seconda,moneo,io ammonisco
+moneo,attiva,indicativo,presente,2a sing.,seconda,mones,tu ammonisci
+moneo,attiva,indicativo,presente,3a sing.,seconda,monet,egli ammonisce
+moneo,attiva,indicativo,presente,1a plu.,seconda,monēmus,noi ammoniamo
+moneo,attiva,indicativo,presente,2a plu.,seconda,monētis,voi ammonite
+moneo,attiva,indicativo,presente,3a plu.,seconda,monent,essi ammoniscono
+moneo,passiva,indicativo,presente,1a sing.,seconda,monĕor,io sono ammonito
+moneo,passiva,indicativo,presente,2a sing.,seconda,monēris,tu sei ammonito
+moneo,passiva,indicativo,presente,3a sing.,seconda,monētur,egli è ammonito
+moneo,passiva,indicativo,presente,1a plu.,seconda,monēmur,noi siamo ammoniti
+moneo,passiva,indicativo,presente,2a plu.,seconda,monemĭni,voi siete ammoniti
+moneo,passiva,indicativo,presente,3a plu.,seconda,monēntur,essi sono ammoniti
+lego,attiva,indicativo,presente,1a sing.,terza,lego,io leggo
+lego,attiva,indicativo,presente,2a sing.,terza,legis,tu leggi
+lego,attiva,indicativo,presente,3a sing.,terza,legit,egli legge
+lego,attiva,indicativo,presente,1a plu.,terza,legĭmus,noi leggiamo
+lego,attiva,indicativo,presente,2a plu.,terza,legĭtis,voi leggete
+lego,attiva,indicativo,presente,3a plu.,terza,legunt,essi leggono
+lego,passiva,indicativo,presente,1a sing.,terza,legor,io sono letto
+lego,passiva,indicativo,presente,2a sing.,terza,legĕris,tu sei letto
+lego,passiva,indicativo,presente,3a sing.,terza,legĭtur,egli è letto
+lego,passiva,indicativo,presente,1a plu.,terza,legĭmur,noi siamo letti
+lego,passiva,indicativo,presente,2a plu.,terza,legimĭni,voi siete letti
+lego,passiva,indicativo,presente,3a plu.,terza,legūntur,essi sono letti
+audio,attiva,indicativo,presente,1a sing.,quarta,audio,io ascolto
+audio,attiva,indicativo,presente,2a sing.,quarta,audis,tu ascolti
+audio,attiva,indicativo,presente,3a sing.,quarta,audit,egli ascolta
+audio,attiva,indicativo,presente,1a plu.,quarta,audīmus,noi ascoltiamo
+audio,attiva,indicativo,presente,2a plu.,quarta,audītis,voi ascoltate
+audio,attiva,indicativo,presente,3a plu.,quarta,audiunt,essi ascoltano
+audio,passiva,indicativo,presente,1a sing.,quarta,audior,io sono ascoltato
+audio,passiva,indicativo,presente,2a sing.,quarta,audīris,tu sei ascoltato
+audio,passiva,indicativo,presente,3a sing.,quarta,audītur,egli è ascoltato
+audio,passiva,indicativo,presente,1a plu.,quarta,audīmur,noi siamo ascoltati
+audio,passiva,indicativo,presente,2a plu.,quarta,audimĭni,voi siete ascoltati
+audio,passiva,indicativo,presente,3a plu.,quarta,audiūntur,essi sono ascoltati
+laudo ,attiva,imperativo,presente,singolare,prima,lauda!,loda!
+laudo ,attiva,imperativo,presente,plurale,prima,laudate!,lodate!
+moneo,attiva,imperativo,presente,singolare,seconda,mone!,ammonisci!
+moneo,attiva,imperativo,presente,plurale,seconda,monete!,ammonite!
+lego,attiva,imperativo,presente,singolare,terza,lege!,leggi!
+lego,attiva,imperativo,presente,plurale,terza,legite!,leggete!
+audio,attiva,imperativo,presente,singolare,quarta,audi!,ascolta!
+audio,attiva,imperativo,presente,plurale,quarta,audite!,ascoltate!
+capio,attiva,indicativo,presente,1a sing.,mista,capio,io prendo
+capio,attiva,indicativo,presente,2a sing.,mista,capis,tu prendi
+capio,attiva,indicativo,presente,3a sing.,mista,capit,egli prende
+capio,attiva,indicativo,presente,1a plu.,mista,capimus,noi prendiamo
+capio,attiva,indicativo,presente,2a plu.,mista,capitis,voi prendete
+capio,attiva,indicativo,presente,3a plu.,mista,capiunt,essi prendono
+capio,passiva,indicativo,presente,1a sing.,mista,capior,io sono preso
+capio,passiva,indicativo,presente,2a sing.,mista,caperis,tu sei preso
+capio,passiva,indicativo,presente,3a sing.,mista,capitur,egli è preso
+capio,passiva,indicativo,presente,1a plu.,mista,capimur,noi siamo presi
+capio,passiva,indicativo,presente,2a plu.,mista,capimini,voi siete presi
+capio,passiva,indicativo,presente,3a plu.,mista,capiuntur,essi sono presi
+capio,attiva,imperativo,presente,singolare,mista,cape!,prendi!
+capio,attiva,imperativo,presente,plurale,mista,capite!,prendete!
+capio,passiva,imperativo,presente,singolare,mista,capere!,prendere
+capio,passiva,imperativo,presente,plurale,mista,capimini!,preso!
+capio,attiva,infinito,presente,---,mista,capere,io ero
+capio,passiva,infinito,presente,---,mista,capi,tu eri
+sum,attiva,indicativo,imperfetto,1a sing.,propria,eram,egli era
+sum,attiva,indicativo,imperfetto,2a sing.,propria,eras,noi eravamo
+sum,attiva,indicativo,imperfetto,3a sing.,propria,erat,voi eravate
+sum,attiva,indicativo,imperfetto,1a plu.,propria,eramus,essi erano
+sum,attiva,indicativo,imperfetto,2a plu.,propria,eratis,voi eravate
+sum,attiva,indicativo,imperfetto,3a plu.,propria,erant,essi erano
+laudo,attiva,indicativo,imperfetto,1a sing.,prima,laudabam,io lodavo
+laudo,attiva,indicativo,imperfetto,2a sing.,prima,laudabas,tu lodavi
+laudo,attiva,indicativo,imperfetto,3a sing.,prima,laudabat,egli lodava
+laudo,attiva,indicativo,imperfetto,1a plu.,prima,laudabamus,noi lodavamo
+laudo,attiva,indicativo,imperfetto,2a plu.,prima,laudabatis,voi lodavate
+laudo,attiva,indicativo,imperfetto,3a plu.,prima,laudabant,essi lodavano
+moneo,attiva,indicativo,imperfetto,1a sing.,seconda,monebam,io ammonivo
+moneo,attiva,indicativo,imperfetto,2a sing.,seconda,monebas,tu ammonivi
+moneo,attiva,indicativo,imperfetto,3a sing.,seconda,monebat,egli ammoniva
+moneo,attiva,indicativo,imperfetto,1a plu.,seconda,monebamus,noi ammonivamo
+moneo,attiva,indicativo,imperfetto,2a plu.,seconda,monebatis,voi ammonivate
+moneo,attiva,indicativo,imperfetto,3a plu.,seconda,monebant,essi ammonivano
+lego,attiva,indicativo,imperfetto,1a sing.,terza,legebam,io leggevo
+lego,attiva,indicativo,imperfetto,2a sing.,terza,legebas,tu leggevi
+lego,attiva,indicativo,imperfetto,3a sing.,terza,legebat,egli leggeva
+lego,attiva,indicativo,imperfetto,1a plu.,terza,legebamus,noi leggevamo
+lego,attiva,indicativo,imperfetto,2a plu.,terza,legebatis,voi leggevate
+lego,attiva,indicativo,imperfetto,3a plu.,terza,legebant,essi leggevano
+audio,attiva,indicativo,imperfetto,1a sing.,quarta,audiebam,io ascoltavo
+audio,attiva,indicativo,imperfetto,2a sing.,quarta,audiebas,tu ascoltavi
+audio,attiva,indicativo,imperfetto,3a sing.,quarta,audiebat,egli ascoltava
+audio,attiva,indicativo,imperfetto,1a plu.,quarta,audiebamus,noi ascoltavamo
+audio,attiva,indicativo,imperfetto,2a plu.,quarta,audiebatis,voi ascoltavate
+audio,attiva,indicativo,imperfetto,3a plu.,quarta,audiebant,essi ascoltavano
+capio,attiva,indicativo,imperfetto,1a sing.,mista,capiebam,io prendevo
+capio,attiva,indicativo,imperfetto,2a sing.,mista,capiebas,tu prendevi
+capio,attiva,indicativo,imperfetto,3a sing.,mista,capiebat,egli prendeva
+capio,attiva,indicativo,imperfetto,1a plu.,mista,capiebamus,noi prendevamo
+capio,attiva,indicativo,imperfetto,2a plu.,mista,capiebatis,voi prendevate
+capio,attiva,indicativo,imperfetto,3a plu.,mista,capiebant,essi prendevano
+laudo,passiva,indicativo,imperfetto,1a sing.,prima,laudabar,io ero lodato
+laudo,passiva,indicativo,imperfetto,2a sing.,prima,laudabaris,tu eri lodato
+laudo,passiva,indicativo,imperfetto,3a sing.,prima,laudabatur,egli era lodato
+laudo,passiva,indicativo,imperfetto,1a plu.,prima,laudabamur,noi eravamo lodati
+laudo,passiva,indicativo,imperfetto,2a plu.,prima,laudabamini,voi eravate lodati
+laudo,passiva,indicativo,imperfetto,3a plu.,prima,laudabantur,essi erano lodati
+moneo,passiva,indicativo,imperfetto,1a sing.,seconda,monebar,io ero ammonito
+moneo,passiva,indicativo,imperfetto,2a sing.,seconda,monebaris,tu eri ammonito
+moneo,passiva,indicativo,imperfetto,3a sing.,seconda,monebatur,egli era ammonito
+moneo,passiva,indicativo,imperfetto,1a plu.,seconda,monebamur,noi eravamo ammoniti
+moneo,passiva,indicativo,imperfetto,2a plu.,seconda,monebamini,voi eravate ammoniti
+moneo,passiva,indicativo,imperfetto,3a plu.,seconda,monebantur,essi erano ammoniti
+lego,passiva,indicativo,imperfetto,1a sing.,terza,legebar,io ero letto
+lego,passiva,indicativo,imperfetto,2a sing.,terza,legebaris,tu eri letto
+lego,passiva,indicativo,imperfetto,3a sing.,terza,legebatur,egli era letto
+lego,passiva,indicativo,imperfetto,1a plu.,terza,legebamur,noi eravamo letti
+lego,passiva,indicativo,imperfetto,2a plu.,terza,legebamini,voi eravate letti
+lego,passiva,indicativo,imperfetto,3a plu.,terza,legebantur,essi erano letti
+audio,passiva,indicativo,imperfetto,1a sing.,quarta,audiebar,io ero ascoltato
+audio,passiva,indicativo,imperfetto,2a sing.,quarta,audiebaris,tu eri ascoltato
+audio,passiva,indicativo,imperfetto,3a sing.,quarta,audiebatur,egli era ascoltato
+audio,passiva,indicativo,imperfetto,1a plu.,quarta,audiebamur,noi eravamo ascoltati
+audio,passiva,indicativo,imperfetto,2a plu.,quarta,audiebamini,voi eravate ascoltati
+audio,passiva,indicativo,imperfetto,3a plu.,quarta,audiebantur,essi erano ascoltati
+capio,passiva,indicativo,imperfetto,1a sing.,mista,capiebar,io ero preso
+capio,passiva,indicativo,imperfetto,2a sing.,mista,capiebaris,tu eri preso
+capio,passiva,indicativo,imperfetto,3a sing.,mista,capiebatur,egli era preso
+capio,passiva,indicativo,imperfetto,1a plu.,mista,capiebamur,noi eravamo presi
+capio,passiva,indicativo,imperfetto,2a plu.,mista,capiebamini,voi eravate presi
+capio,passiva,indicativo,imperfetto,3a plu.,mista,capiebantur,essi erano presi
+laudo,attiva,indicativo,futuro,1a sing.,prima,laudabo,io loderò
+laudo,attiva,indicativo,futuro,2a sing.,prima,laudabis,tu loderai
+laudo,attiva,indicativo,futuro,3a sing.,prima,laudabit,egli loderà
+laudo,attiva,indicativo,futuro,1a plu.,prima,laudabimus,noi loderemo
+laudo,attiva,indicativo,futuro,2a plu.,prima,laudabitis,voi loderete
+laudo,attiva,indicativo,futuro,3a plu.,prima,laudabunt,essi loderanno
+moneo,attiva,indicativo,futuro,1a sing.,seconda,monebo,io ammonirò
+moneo,attiva,indicativo,futuro,2a sing.,seconda,monebis,tu ammonirai
+moneo,attiva,indicativo,futuro,3a sing.,seconda,monebit,egli ammonirà
+moneo,attiva,indicativo,futuro,1a plu.,seconda,monebimus,noi ammoniremo
+moneo,attiva,indicativo,futuro,2a plu.,seconda,monebitis,voi ammonirete
+moneo,attiva,indicativo,futuro,3a plu.,seconda,monebunt,essi ammoniranno
+lego,attiva,indicativo,futuro,1a sing.,terza,legam,io leggerò
+lego,attiva,indicativo,futuro,2a sing.,terza,leges,tu leggerai
+lego,attiva,indicativo,futuro,3a sing.,terza,leget,egli leggerà
+lego,attiva,indicativo,futuro,1a plu.,terza,legemus,noi leggeremo
+lego,attiva,indicativo,futuro,2a plu.,terza,legetis,voi leggerete
+lego,attiva,indicativo,futuro,3a plu.,terza,legent,essi leggeranno
+audio,attiva,indicativo,futuro,1a sing.,quarta,audiam,io ascolterò
+audio,attiva,indicativo,futuro,2a sing.,quarta,audies,tu ascolterai
+audio,attiva,indicativo,futuro,3a sing.,quarta,audiet,egli ascolterà
+audio,attiva,indicativo,futuro,1a plu.,quarta,audiemus,noi ascolteremo
+audio,attiva,indicativo,futuro,2a plu.,quarta,audietis,voi ascolterete
+audio,attiva,indicativo,futuro,3a plu.,quarta,audient,essi ascolteranno
+capio,attiva,indicativo,futuro,1a sing.,mista,capiam,io prenderò
+capio,attiva,indicativo,futuro,2a sing.,mista,capies,tu prenderai
+capio,attiva,indicativo,futuro,3a sing.,mista,capiet,egli prenderà
+capio,attiva,indicativo,futuro,1a plu.,mista,capiemus,noi prenderemo
+capio,attiva,indicativo,futuro,2a plu.,mista,capietis,voi prenderete
+capio,attiva,indicativo,futuro,3a plu.,mista,capient,essi prenderanno
+laudo,passiva,indicativo,futuro,1a sing.,prima,laudabor,io sarò lodato
+laudo,passiva,indicativo,futuro,2a sing.,prima,laudaberis,tu sarai lodato
+laudo,passiva,indicativo,futuro,3a sing.,prima,laudabitur,egli sarà lodato
+laudo,passiva,indicativo,futuro,1a plu.,prima,laudabimur,noi saremo lodati
+laudo,passiva,indicativo,futuro,2a plu.,prima,laudabimini,voi sarete lodati
+laudo,passiva,indicativo,futuro,3a plu.,prima,laudabuntur,essi saranno lodati
+moneo,passiva,indicativo,futuro,1a sing.,seconda,monebor,io sarò ammonito
+moneo,passiva,indicativo,futuro,2a sing.,seconda,moneberis,tu sarai ammonito
+moneo,passiva,indicativo,futuro,3a sing.,seconda,monebitur,egli sarà ammonito
+moneo,passiva,indicativo,futuro,1a plu.,seconda,monebimur,noi saremo ammoniti
+moneo,passiva,indicativo,futuro,2a plu.,seconda,monebimini,voi sarete ammoniti
+moneo,passiva,indicativo,futuro,3a plu.,seconda,monebuntur,essi saranno ammoniti
+lego,passiva,indicativo,futuro,1a sing.,terza,legebor,io sarò letto
+lego,passiva,indicativo,futuro,2a sing.,terza,legeberis,tu sarai letto
+lego,passiva,indicativo,futuro,3a sing.,terza,legetur,egli sarà letto
+lego,passiva,indicativo,futuro,1a plu.,terza,legemur,noi saremo letti
+lego,passiva,indicativo,futuro,2a plu.,terza,legemini,voi sarete letti
+lego,passiva,indicativo,futuro,3a plu.,terza,legentur,essi saranno letti
+audio,passiva,indicativo,futuro,1a sing.,quarta,audiamur,noi saremo ascoltati
+audio,passiva,indicativo,futuro,2a sing.,quarta,audiemini,voi sarete ascoltati
+audio,passiva,indicativo,futuro,3a sing.,quarta,audietur,egli sarà ascoltato
+audio,passiva,indicativo,futuro,1a plu.,quarta,audiemur,noi saremo ascoltati
+audio,passiva,indicativo,futuro,2a plu.,quarta,audiemini,voi sarete ascoltati
+audio,passiva,indicativo,futuro,3a plu.,quarta,audientur,essi saranno ascoltati
+capio,passiva,indicativo,futuro,1a sing.,mista,capiar,io sarò preso
+capio,passiva,indicativo,futuro,2a sing.,mista,capieris,tu sarai preso
+capio,passiva,indicativo,futuro,3a sing.,mista,capietur,egli sarà preso
+capio,passiva,indicativo,futuro,1a plu.,mista,capiemur,noi saremo presi
+capio,passiva,indicativo,futuro,2a plu.,mista,capiemini,voi sarete presi
+capio,passiva,indicativo,futuro,3a plu.,mista,capientur,essi saranno presi
+sum,attiva,indicativo,futuro,1a sing.,propria,ero,io sarò
+sum,attiva,indicativo,futuro,2a sing.,propria,eris,tu sarai
+sum,attiva,indicativo,futuro,3a sing.,propria,erit,egli sarà
+sum,attiva,indicativo,futuro,1a plu.,propria,erimus,noi saremo
+sum,attiva,indicativo,futuro,2a plu.,propria,eritis,voi sarete
+sum,attiva,indicativo,futuro,3a plu.,propria,erunt,essi saranno
