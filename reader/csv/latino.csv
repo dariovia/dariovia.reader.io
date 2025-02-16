@@ -80,8 +80,16 @@ capio,attiva,imperativo,presente,singolare,mista,cape!,prendi!
 capio,attiva,imperativo,presente,plurale,mista,capite!,prendete!
 capio,passiva,imperativo,presente,singolare,mista,capere!,prendere
 capio,passiva,imperativo,presente,plurale,mista,capimini!,preso!
-capio,attiva,infinito,presente,---,mista,capere,io ero
-capio,passiva,infinito,presente,---,mista,capi,tu eri
+laudo,attiva,infinito,presente,---,prima,laudāre,lodare
+laudo,passiva,infinito,presente,---,prima,laudari,essere lodato
+moneo,attiva,infinito,presente,---,seconda,monēre,ammonire
+moneo,passiva,infinito,presente,---,seconda,monērī,essere ammonito
+lego,attiva,infinito,presente,---,terza,legere,leggere
+lego,passiva,infinito,presente,---,terza,legī,essere letto
+audio,attiva,infinito,presente,---,quarta,audīre,udire
+audio,passiva,infinito,presente,---,quarta,audīrī,essere udito
+capio,attiva,infinito,presente,---,mista,capere,prendere
+capio,passiva,infinito,presente,---,mista,capi,essere preso
 sum,attiva,indicativo,imperfetto,1a sing.,propria,eram,egli era
 sum,attiva,indicativo,imperfetto,2a sing.,propria,eras,noi eravamo
 sum,attiva,indicativo,imperfetto,3a sing.,propria,erat,voi eravate
