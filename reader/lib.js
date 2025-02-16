@@ -829,6 +829,77 @@ function getRandomNumbersFromSet(set, n) {
     return shuffled.slice(0, n); // Prende i primi N elementi mescolati
 }
 
+function generateTable(array, mytable, rowRand) {
+    table = document.getElementById(mytable);
+	table.innerHTML = "";
+	for (j=0; j< table.rows.length; j++)
+		table.deleteRow(table.rows.length-1)
+	//console.log(table)
+	index = 0
+    array.forEach(item => {
+        let row = document.createElement("tr"); // Crea una riga
+
+        let cell1 = document.createElement("td");
+        cell1.textContent = item; // Inserisce la stringa
+
+        let cell2 = document.createElement("td");
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox"; // Crea il checkbox
+		checkbox.id = "checkbox_generated_" + index
+
+		//checkbox.onchange = setQuery(index)
+        cell2.appendChild(checkbox);
+
+		let cell3 = document.createElement("td");
+		cell3.id = "col_dom_"+index
+
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+		row.appendChild(cell3);
+        table.appendChild(row);
+		
+		truncTD = table.rows[index].cells[1].outerHTML.split("></td>")[0]
+		
+		newTD = truncTD + " onchange=\"setQuery("+index+","+rowRand+")\"></td>"
+		
+		table.rows[index].cells[1].outerHTML = newTD
+		
+		index++
+    });
+}
+
+function setQuery(col, rowRand){
+	table = document.getElementById("requests")
+	checkbox = document.getElementById("checkbox_generated_" + col)
+	
+	
+	if (checkbox.checked){		
+		//console.log(table.rows[0].cells[col].innerText,col,table.rows[rowRand].cells[col].innerText)
+		document.getElementById("request_"+col).value = table.rows[rowRand].cells[col].innerText
+		document.getElementById("col_dom_"+col).innerText =  table.rows[rowRand].cells[col].innerText
+		document.getElementById("haveQuestion").disabled = false
+		document.getElementById("showResponse").disabled = false
+	}
+	else{
+		document.getElementById("request_"+col).value = ""
+		document.getElementById("col_dom_"+col).innerText = ""
+	}				
+		
+		
+}
+
+function chooseColumns(){
+	document.getElementById("showResponse").disabled = true
+	table = document.getElementById("requests")
+	for (j=0; j< table.rows[0].cells.length; j++){
+		document.getElementById("request_"+j).value = ""
+		document.getElementById("domanda").innerText = ""
+	}
+	rowRand = getRandomInt(2, table.rows.length-1)
+	generateTable(table.rows[0].outerText.split("\t"), "chooseColTable",rowRand)
+
+}
+
 function haveQuestion(){
 	table = document.getElementById("requests")
 	rowRand = getRandomInt(2, table.rows.length-1)
@@ -847,16 +918,16 @@ function haveQuestion(){
 		count = rangeCol.size - 1
 	
 	colRandSet = getRandomNumbersFromSet(rangeCol,count)
-	stringRequest = "<div id=\"domanda\"><br>vorrei sapere :"
+	stringRequest = "<div id=\"domanda\"><br>richiesta: <br><ul>"
 	
 	for (i=0; i< colRandSet.length; i++){
 		//console.log(table.rows[rowRand].cells[colRandSet[i]].innerText)
 		//console.log(document.getElementById("request_"+colRandSet[i]).value) 
 		document.getElementById("request_"+colRandSet[i]).value = table.rows[rowRand].cells[colRandSet[i]].innerText
-		stringRequest = stringRequest + "<br>" + table.rows[0].cells[colRandSet[i]].innerText + " = " + table.rows[rowRand].cells[colRandSet[i]].innerText
+		stringRequest = stringRequest + "<li>" + table.rows[0].cells[colRandSet[i]].innerText + " = " + table.rows[rowRand].cells[colRandSet[i]].innerText + "</li>"
 	}
 	//console.log(document.getElementById("domanda"))
-	document.getElementById("domanda").outerHTML = stringRequest+"</div>"
+	document.getElementById("domanda").outerHTML = stringRequest+"</ul></div>"
 	document.getElementById("haveQuestion").disabled = true
 	document.getElementById("showResponse").disabled = false
 }
@@ -913,6 +984,8 @@ function resetRequest(){
 	document.getElementById("haveQuestion").disabled = false
 	document.getElementById("showResponse").disabled = true
 	document.getElementById("domanda").innerText = ""
+	tableChooseCol = document.getElementById("chooseColTable");
+	tableChooseCol.innerHTML = "";
 }
 
 function setButtons(){
@@ -973,12 +1046,15 @@ function theMainReader(){
 						resetRequest();
 					}
 				});
-				document.getElementById("description").innerHTML ="<br><p>\"alt\" to have a question &nbsp&nbsp&nbsp&nbsp <button  id= \"haveQuestion\" onclick=\"haveQuestion()\">question</button></p><div id=\"domanda\"></div><br><p>\"enter\" to get response &nbsp&nbsp&nbsp&nbsp<button id= \"showResponse\"  disabled onclick=\"showResponse()\">response</button></p><br><p>\"esc\" to reset question &nbsp&nbsp&nbsp&nbsp<button id= \"resetRequest\"   onclick=\"resetRequest()\">reset</button></p><br>"
+				chooseCol = "<button  id= \"chooseColumns\" onclick=\"chooseColumns()\">choose columns</button><table id=\"chooseColTable\"></table>"
+				
+				document.getElementById("description").innerHTML ="<br><p> <button  id= \"haveQuestion\" onclick=\"haveQuestion()\">random question (press alt)</button>&nbsp&nbsp&nbsp"+chooseCol+"</p><div id=\"domanda\"></div><br><p><button id= \"showResponse\"  disabled onclick=\"showResponse()\">response (press enter)</button></p><br><p><button id= \"resetRequest\"   onclick=\"resetRequest()\">reset (press esc)</button></p><br>"
 			}
 		else{
 			getData(document.getElementById("urlCsv").value);
 			document.getElementById("description").innerHTML ="<br><p>Click to hide column</p>"
 		}	
 			
-        document.getElementById("csv-source").innerHTML = "<p>data source file : <font color=\"blue\">" + document.getElementById("urlCsv").value + "</font></p>"	
+        document.getElementById("csv-source").innerHTML = "<p>data source file : <font color=\"blue\">" + document.getElementById("urlCsv").value + "</font></p>"
+		
 }
