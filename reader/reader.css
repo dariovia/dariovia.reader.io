@@ -230,3 +230,37 @@ textarea {
   margin: 4px 2px;
   cursor: pointer;
 }
+
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#description {
+  width: 80%;
+  max-width: 1200px;
+  min-width: 600px;
+}
+
+#chooseColTable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#chooseColTable td, #chooseColTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  min-width: 100px;
+}
+
+
+
+#chooseColTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}

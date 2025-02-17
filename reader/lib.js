@@ -843,9 +843,11 @@ function generateTable(array, mytable, rowRand) {
         cell1.textContent = item; // Inserisce la stringa
 
         let cell2 = document.createElement("td");
+		cell2.style.width = '20px';
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox"; // Crea il checkbox
 		checkbox.id = "checkbox_generated_" + index
+		
 
 		//checkbox.onchange = setQuery(index)
         cell2.appendChild(checkbox);
@@ -877,8 +879,10 @@ function setQuery(col, rowRand){
 		//console.log(table.rows[0].cells[col].innerText,col,table.rows[rowRand].cells[col].innerText)
 		document.getElementById("request_"+col).value = table.rows[rowRand].cells[col].innerText
 		document.getElementById("col_dom_"+col).innerText =  table.rows[rowRand].cells[col].innerText
-		document.getElementById("haveQuestion").disabled = false
+		document.getElementById("haveQuestion").disabled = true
+		document.getElementById("haveQuestion").setAttribute("class", "button disabled");
 		document.getElementById("showResponse").disabled = false
+		document.getElementById("showResponse").setAttribute("class", "button");
 	}
 	else{
 		document.getElementById("request_"+col).value = ""
@@ -889,7 +893,12 @@ function setQuery(col, rowRand){
 }
 
 function chooseColumns(){
+	document.getElementById("haveQuestion").disabled = true
+	document.getElementById("haveQuestion").setAttribute("class", "button disabled");
 	document.getElementById("showResponse").disabled = true
+	document.getElementById("showResponse").setAttribute("class", "button disabled");
+	document.getElementById("chooseColumns").disabled = true
+	document.getElementById("chooseColumns").setAttribute("class", "button disabled");
 	table = document.getElementById("requests")
 	for (j=0; j< table.rows[0].cells.length; j++){
 		document.getElementById("request_"+j).value = ""
@@ -929,7 +938,12 @@ function haveQuestion(){
 	//console.log(document.getElementById("domanda"))
 	document.getElementById("domanda").outerHTML = stringRequest+"</ul></div>"
 	document.getElementById("haveQuestion").disabled = true
+	document.getElementById("haveQuestion").setAttribute("class", "button disabled");
 	document.getElementById("showResponse").disabled = false
+	document.getElementById("showResponse").setAttribute("class", "button");
+	document.getElementById("chooseColumns").disabled = true
+	document.getElementById("chooseColumns").setAttribute("class", "button disabled");
+	
 }
 
 function showResponse(){
@@ -966,6 +980,7 @@ function showResponse(){
 		}
 	}
 	document.getElementById("showResponse").disabled = true
+	document.getElementById("showResponse").setAttribute("class", "button disabled");
 }
 
 function resetTable(tableName){
@@ -982,7 +997,14 @@ function resetRequest(){
 	}
 	showResponse()
 	document.getElementById("haveQuestion").disabled = false
+	document.getElementById("haveQuestion").setAttribute("class", "button");
+	
 	document.getElementById("showResponse").disabled = true
+	document.getElementById("showResponse").setAttribute("class", "button disabled");
+	
+	document.getElementById("chooseColumns").disabled = false
+	document.getElementById("chooseColumns").setAttribute("class", "button");
+	
 	document.getElementById("domanda").innerText = ""
 	tableChooseCol = document.getElementById("chooseColTable");
 	tableChooseCol.innerHTML = "";
@@ -990,7 +1012,9 @@ function resetRequest(){
 
 function setButtons(){
 	document.getElementById("haveQuestion").disabled = true
+	document.getElementById("haveQuestion").setAttribute("class", "button disabled");
 	document.getElementById("showResponse").disabled = false
+	document.getElementById("showResponse").setAttribute("class", "button");
 }
 
 function theMainReader(){
@@ -1032,7 +1056,7 @@ function theMainReader(){
 				loadFile(document.getElementById("urlCsv").value)
 
 				document.addEventListener("keyup", function(event) {
-					if (event.key === 'Alt') {
+					if (event.key === 'Control') {
 						haveQuestion();
 					}
 				});
@@ -1046,9 +1070,20 @@ function theMainReader(){
 						resetRequest();
 					}
 				});
-				chooseCol = "<button  id= \"chooseColumns\" onclick=\"chooseColumns()\">choose columns</button><table id=\"chooseColTable\"></table>"
+				document.addEventListener("keyup", function(event) {
+					if (event.key === 'c') {
+						chooseColumns();
+					}
+				});
+				chooseCol = "<button  class=\"button\"  id= \"chooseColumns\" style=\"float: right; background-color: #2a92de;\" onclick=\"chooseColumns()\">choose columns (press c)</button><table id=\"chooseColTable\"></table>"
 				
-				document.getElementById("description").innerHTML ="<br><p> <button  id= \"haveQuestion\" onclick=\"haveQuestion()\">random question (press alt)</button>&nbsp&nbsp&nbsp"+chooseCol+"</p><div id=\"domanda\"></div><br><p><button id= \"showResponse\"  disabled onclick=\"showResponse()\">response (press enter)</button></p><br><p><button id= \"resetRequest\"   onclick=\"resetRequest()\">reset (press esc)</button></p><br>"
+				haveQue = "<button class=\"button\" id= \"haveQuestion\"  style=\"background-color: #2a92de;\" onclick=\"haveQuestion()\">random question (press ctrl)</button>"
+				
+				showRe = "<button class=\"button disabled\" id= \"showResponse\"  disabled onclick=\"showResponse()\">response (press enter)</button>"
+				
+				resetRe = "<button  class=\"button\" id= \"resetRequest\" style=\"float: right; background-color: #a29508;\" onclick=\"resetRequest()\">reset (press esc)</button>"
+				
+				document.getElementById("description").innerHTML ="<br><p>"+haveQue+"&nbsp&nbsp&nbsp"+chooseCol+"</p><div id=\"domanda\"></div><br>"+showRe+"&nbsp&nbsp&nbsp"+resetRe+"<br>"
 			}
 		else{
 			getData(document.getElementById("urlCsv").value);
