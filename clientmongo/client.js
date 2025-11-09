@@ -4,7 +4,7 @@
 async function caricaTabella(idTabella) {
 	const tabella = document.getElementById(idTabella);
   try {
-    const response = await fetch("http://localhost:3000/api/tabelloni/spesa"); // endpoint API
+    const response = await fetch("https://apimongo-tde7.onrender.com/api/tabelloni/spesa"); // endpoint API
     if (!response.ok) throw new Error("Errore nella chiamata API");
 
     const dati = await response.json(); // converte in oggetto JS
