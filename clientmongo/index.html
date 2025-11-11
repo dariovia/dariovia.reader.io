@@ -2,18 +2,42 @@
 <html lang="it">
 <link rel="stylesheet" href="reader.css"> 
 <head>
-  <script src="client.js"></script>
-  <meta charset="UTF-8">
-  <title>Chiamata API</title>
+	<script src="./config.js"></script>
+	<script src="./lib.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabelloni</title>
+ 
 </head>
 <body>
+<header>
+  <button id="loginBtn">Chi sei ?</button>
 
-	<div class="table">
-	<table class="table" id="tabellone"></table>
-	</div>
-	<script>
-	// chiama subito la funzione
-	caricaTabella("tabellone");
-	</script>
+  <div id="loginForm">
+    <input type="text" id="nome" placeholder="Username" />
+    <input type="password" id="frase" placeholder="Passphrase" />
+    <button id="submitLogin">Entra</button>
+  </div>
+</header>
+
+<h1>Tabelloni</h1>
+
+<h3>Seleziona collezione:</h3>
+
+<div class="row">
+  <select id="menuCollezioni">
+    <option value="">-- scegli --</option>
+  </select>
+  <button id="callApiBtn">Carica tabella</button>
+</div>
+
+
+<div id="output">Premi il pulsante per iniziare...</div>
+
+<script>
+  main()
+</script>
+
+
 </body>
 </html>
