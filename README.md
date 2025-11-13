@@ -35,3 +35,6 @@ Opzioni principali :
 
 velocità sprint
 * https://dariovia.github.io/dariovia.reader.io/velocity/velocity.html
+
+client api mongo autenticazione + token
+* https://dariovia.github.io/dariovia.reader.io/clientmongo/
