@@ -32,10 +32,18 @@
 </div>
 
 
-<div id="output">Premi il pulsante per iniziare...</div>
+<div id="output">
+  <input
+    type="text"
+    id="filterInput"
+    placeholder="Filtra per nome..."
+    style="margin-bottom: 10px; padding: 6px; width: 200px;"
+  />
+  <div id="tableContainer"></div>
+</div>
 
 <script>
-  main()
+  window.addEventListener("DOMContentLoaded", main);
 </script>
 
 

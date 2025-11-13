@@ -1,10 +1,5 @@
 // config.js
 window.CONFIG = {
-  API_URL_TOKEN: "http://localhost:8080/generate",
-  DEFAULT_USER: "dario",
-  DEFAULT_PASSWORD: "pass",
-  TOKEN_EXPIRATION: "1h",
-  API_PROTECTED_URL: "http://localhost:3000/api/tabelloni",
   API_IDENTITY_URL: "http://localhost:3000/identity"
 };
 
