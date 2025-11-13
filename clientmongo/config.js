@@ -1,5 +1,15 @@
 // config.js
-window.CONFIG = {
-  API_IDENTITY_URL: "http://localhost:3000/identity"
-};
 
+const config = {};
+
+// 🔍 Controllo dell’ambiente
+if (window.location.hostname === "localhost") {
+    // 🌱 Ambiente locale
+    config.API_IDENTITY_URL = "http://localhost:3000/identity";
+} else {
+    // ☁️ Ambiente produzione (Render o dominio reale)
+    config.API_IDENTITY_URL = "https://apimongo-tde7.onrender.com/identity";
+}
+
+// Esporto globalmente
+window.CONFIG = config;
