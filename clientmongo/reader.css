@@ -102,6 +102,20 @@ th, td {
   padding: 8px;
 }
 
+.delete-btn {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-btn:hover {
+  background: #d90000;
+}
+
+
 th {
   background-color: #f2f2f2;
   text-align: left;
