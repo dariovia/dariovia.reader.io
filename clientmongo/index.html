@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="it">
-<link rel="stylesheet" href="reader.css"> 
 <head>
-	<script src="./config.js"></script>
-	<script src="./lib.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tabelloni</title>
- 
+  <link rel="stylesheet" href="reader.css">
+  <script src="./config.js"></script>
+  <script src="./lib.js"></script>
 </head>
 <body>
 <header>
@@ -29,8 +28,12 @@
     <option value="">-- scegli --</option>
   </select>
   <button id="callApiBtn">Carica tabella</button>
-</div>
 
+  <label id="editLabel" style="display:none;">
+    <input type="checkbox" id="toggleEdit"> Abilita modifica
+  </label>
+    <button id="addRowBtn" style="display:none;">Aggiungi riga</button>
+</div>
 
 <div id="output">
   <input
@@ -45,7 +48,5 @@
 <script>
   window.addEventListener("DOMContentLoaded", main);
 </script>
-
-
 </body>
 </html>

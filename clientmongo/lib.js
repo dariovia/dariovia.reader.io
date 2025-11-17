@@ -1,7 +1,11 @@
 // ================= Globals =================
 let loggedIn = false;
 let nome = "NOUSER";
-let optionsList = {}; // contiene info API e token per ogni collezione
+let optionsList = {}; // info API/token per ogni collezione
+let editEnabled = false; // stato toggle edit
+let currentCollectionName = null;
+let currentData = [];
+let currentToken = null;
 
 // ================= Funzioni API =================
 async function getToken(strNome, options) {
@@ -23,19 +27,23 @@ async function getToken(strNome, options) {
   return data.token;
 }
 
-async function callProtectedApi(api_protected_url, token, verb, endpoint, queryString) {
-  let urlData = api_protected_url + "/" + endpoint;
-  if (queryString) urlData += "?" + queryString;
-
-  const response = await fetch(urlData, {
+async function callProtectedApi(api_protected_url, token, verb, endpoint, body) {
+  let url = api_protected_url + "/" + endpoint;
+  const response = await fetch(url, {
     method: verb,
     headers: {
       "Authorization": "Bearer " + token,
+      "Content-Type": body ? "application/json" : undefined,
       "Accept": "application/json"
-    }
+    },
+    body: body ? JSON.stringify(body) : undefined
   });
 
-  if (!response.ok) throw new Error("Errore chiamata protetta: " + response.status);
+  if (!response.ok) {
+    const err = await response.json().catch(()=>({errore: response.status}));
+    throw new Error(err.errore || "Errore API: " + response.status);
+  }
+
   return await response.json();
 }
 
@@ -81,7 +89,7 @@ function populateSelection(dataJson) {
   updateCallButtonState();
 }
 
-// ================= Aggiorna Stato Bottone =================
+// ================= Update Button State =================
 function updateCallButtonState() {
   const callBtn = document.getElementById("callApiBtn");
   const select = document.getElementById("menuCollezioni");
@@ -99,9 +107,13 @@ function updateCallButtonState() {
   }
 }
 
+// ================= Render Rows Globale =================
+let renderRows; // dichiarazione globale
+
 // ================= Creazione Tabella =================
 function creaTabella(dati, collectionName, token, rights) {
   const canDelete = rights.includes("DELETE");
+  const canEdit = rights.includes("PUT") && editEnabled;
   const container = document.getElementById("output");
   container.innerHTML = "";
 
@@ -120,7 +132,7 @@ function creaTabella(dati, collectionName, token, rights) {
   let currentSort = { key: null, asc: true };
   let filteredData = [...dati];
 
-  // Header + Ordinamento
+  // Header + ordinamento
   keys.forEach(k => {
     const th = document.createElement("th");
     th.textContent = k;
@@ -151,15 +163,14 @@ function creaTabella(dati, collectionName, token, rights) {
     headerRow.appendChild(th);
   });
 
-  if (canDelete) {
+  if (canDelete || canEdit) {
     const th = document.createElement("th");
     th.textContent = "Azioni";
     headerRow.appendChild(th);
   }
-
   thead.appendChild(headerRow);
 
-  // Filtro colonna
+  // Filtri
   const filterRow = document.createElement("tr");
   keys.forEach(k => {
     const th = document.createElement("th");
@@ -171,32 +182,29 @@ function creaTabella(dati, collectionName, token, rights) {
     th.appendChild(input);
     filterRow.appendChild(th);
   });
-  if (canDelete) filterRow.appendChild(document.createElement("th"));
+  if (canDelete || canEdit) filterRow.appendChild(document.createElement("th"));
   thead.appendChild(filterRow);
 
-  // Riga conteggio righe e somme
+  // Conteggio righe e somme
   const countRow = document.createElement("tr");
-  keys.forEach((k,i) => {
+  keys.forEach((k,i)=>{
     const th = document.createElement("th");
-    if (i===0) th.id="rowCount", th.textContent=`Righe: ${filteredData.length}`;
-    else if (k.startsWith("#")) {
+    if(i===0) th.id="rowCount", th.textContent=`Righe: ${filteredData.length}`;
+    else if(k.startsWith("#")){
       th.id=`sum_${k}`;
       th.textContent=`Somma: ${filteredData.reduce((acc,v)=>acc+(parseFloat(v[k])||0),0)}`;
     }
     countRow.appendChild(th);
   });
-  if (canDelete) countRow.appendChild(document.createElement("th"));
+  if (canDelete || canEdit) countRow.appendChild(document.createElement("th"));
   thead.appendChild(countRow);
 
   table.appendChild(thead);
-
   const tbody = document.createElement("tbody");
   table.appendChild(tbody);
 
-  function renderRows(array) {
+  renderRows = function(array){
     tbody.innerHTML = "";
-
-    // Aggiorna conteggio righe e somme
     const rowCount = document.getElementById("rowCount");
     if(rowCount) rowCount.textContent=`Righe: ${array.length}`;
     keys.forEach((k,i)=>{
@@ -206,15 +214,29 @@ function creaTabella(dati, collectionName, token, rights) {
       }
     });
 
-    array.forEach(item => {
+    array.forEach(item=>{
       const tr = document.createElement("tr");
       keys.forEach(k=>{
         const td = document.createElement("td");
         td.style.border="1px solid #ccc";
         td.style.padding="5px";
 
-        const val = item[k];
-        if(typeof val==="string"){
+        let val = item[k];
+
+        if(canEdit){
+          const input = document.createElement("input");
+          input.value = val;
+          input.style.width = "100%";
+          input.addEventListener("change", async ()=>{
+            const newVal = input.value;
+            try{
+              await callProtectedApi(optionsList[collectionName].api_protected_url, currentToken, "PUT", `${collectionName}/${item._id}`, { [k]: newVal });
+              item[k] = newVal;
+              renderRows(filteredData);
+            }catch(e){ alert(e.message); }
+          });
+          td.appendChild(input);
+        } else if(typeof val==="string"){
           const urlRegex=/(https?:\/\/[^\s]+)/g;
           let last=0;
           val.replace(urlRegex,(match,url,offset)=>{
@@ -225,7 +247,7 @@ function creaTabella(dati, collectionName, token, rights) {
             last=offset+url.length;
           });
           if(last<val.length) td.appendChild(document.createTextNode(val.slice(last)));
-        } else td.textContent=val;
+        } else td.textContent = val;
 
         tr.appendChild(td);
       });
@@ -234,17 +256,13 @@ function creaTabella(dati, collectionName, token, rights) {
         const td = document.createElement("td");
         const btn = document.createElement("button");
         btn.textContent="🗑️";
-        btn.onclick = async () => {
+        btn.onclick = async ()=>{
           if(!confirm("Eliminare elemento?")) return;
           try{
-            const res = await fetch(`${optionsList[collectionName].api_protected_url}/${collectionName}/${item._id}`,{
-              method:"DELETE",
-              headers: {"Authorization":"Bearer "+token}
-            });
-            if(!res.ok) throw new Error("Errore delete");
+            await callProtectedApi(optionsList[collectionName].api_protected_url, currentToken, "DELETE", `${collectionName}/${item._id}`);
             filteredData = filteredData.filter(x=>x._id!==item._id);
             renderRows(filteredData);
-          } catch(e){ alert(e.message); }
+          }catch(e){ alert(e.message); }
         };
         td.appendChild(btn);
         tr.appendChild(td);
@@ -254,12 +272,10 @@ function creaTabella(dati, collectionName, token, rights) {
     });
   }
 
-  function applyFilters() {
+  function applyFilters(){
     const inputs = filterRow.querySelectorAll("input");
     const filters = Array.from(inputs).map(i=>i.value.toLowerCase());
-    filteredData = dati.filter(item =>
-      keys.every((k,i)=>item[k]?.toString().toLowerCase().includes(filters[i]))
-    );
+    filteredData = dati.filter(item=>keys.every((k,i)=>item[k]?.toString().toLowerCase().includes(filters[i])));
     renderRows(filteredData);
   }
 
@@ -268,20 +284,36 @@ function creaTabella(dati, collectionName, token, rights) {
 }
 
 // ================= Main =================
-function main() {
+function main(){
   const output = document.getElementById("output");
   const loginBtn = document.getElementById("loginBtn");
   const loginForm = document.getElementById("loginForm");
   const submitLogin = document.getElementById("submitLogin");
   const callBtn = document.getElementById("callApiBtn");
   const selectCollezioni = document.getElementById("menuCollezioni");
+  const toggleEdit = document.getElementById("toggleEdit");
+  const editLabel = document.getElementById("editLabel");
+  const addRowBtn = document.getElementById("addRowBtn");
+
+  // Nascondi controlli all'avvio
+  if(toggleEdit) toggleEdit.style.display = "none";
+  if(editLabel) editLabel.style.display = "none";
+  if(addRowBtn) addRowBtn.style.display = "none";
 
   updateCallButtonState();
 
-  loginBtn.addEventListener("click", ()=> {
-    loginForm.style.display = loginForm.style.display==="block"?"none":"block";
-  });
+  // Toggle edit
+  if(toggleEdit){
+    toggleEdit.addEventListener("change", ()=>{
+      editEnabled = toggleEdit.checked;
+      if(currentCollectionName && currentData.length>0){
+        creaTabella(currentData, currentCollectionName, currentToken, optionsList[currentCollectionName].grant);
+      }
+    });
+  }
 
+  // Login
+  loginBtn.addEventListener("click", ()=> { loginForm.style.display = loginForm.style.display==="block"?"none":"block"; });
   loginForm.addEventListener("keydown", e=>{
     if(e.key==="Enter"){ e.preventDefault(); submitLogin.click(); }
     if(e.key==="Escape"){ loginForm.style.display="none"; }
@@ -293,6 +325,15 @@ function main() {
     loginForm.style.display="none";
 
     const lg = await verifyAcces(nome,frase);
+    // Reset tabella e controlli
+    currentData = [];
+    currentCollectionName = null;
+    currentToken = null;
+    output.innerHTML = "";
+    toggleEdit.style.display = "none";
+    editLabel.style.display = "none";
+    addRowBtn.style.display = "none";
+
     if(lg.errore){
       output.textContent="Login fallito";
       nome="NOUSER";
@@ -309,16 +350,52 @@ function main() {
 
   selectCollezioni.addEventListener("change", updateCallButtonState);
 
+  // Carica tabella
   callBtn.addEventListener("click", async ()=>{
     output.textContent="Recupero token...";
     try{
       const collezione = selectCollezioni.value;
-      const token = await getToken(nome,optionsList[collezione]);
-      output.textContent="Token ricevuto ✅\nChiamo API protetta...";
+      const token = await getToken(nome, optionsList[collezione]);
       const data = await callProtectedApi(optionsList[collezione].api_protected_url, token, "GET", collezione);
+
+      currentCollectionName = collezione;
+      currentData = data;
+      currentToken = token;
+
+      // mostra toggle edit solo se PUT
+      if(optionsList[collezione].grant.includes("PUT")){
+        editLabel.style.display = "inline-block";
+		toggleEdit.style.display = "inline-block";
+      } else {
+        editLabel.style.display = "none";
+		toggleEdit.style.display = "none";
+        editEnabled = false;
+      }
+
+      // mostra add row solo se POST
+      if(optionsList[collezione].grant.includes("POST")){
+        addRowBtn.style.display = "inline-block";
+      } else {
+        addRowBtn.style.display = "none";
+      }
+
       creaTabella(data, collezione, token, optionsList[collezione].grant);
-    } catch(err){
-      output.textContent="❌ Errore: "+err.message;
-    }
+    }catch(err){ output.textContent="❌ Errore: "+err.message; }
+  });
+
+  // Aggiungi riga
+  addRowBtn.addEventListener("click", async ()=>{
+    if(!currentData || currentData.length===0) return;
+    const col = selectCollezioni.value;
+    const token = await getToken(nome, optionsList[col]);
+    const keys = Object.keys(currentData[0]);
+    const newRow = {};
+    for(let i=1;i<keys.length;i++) newRow[keys[i]]="";
+
+    try{
+      const created = await callProtectedApi(optionsList[col].api_protected_url, token, "POST", col, newRow);
+      currentData.unshift(created);
+      renderRows(currentData);
+    }catch(e){ alert(e.message); }
   });
 }

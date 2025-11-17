@@ -2,8 +2,10 @@
 
 const config = {};
 
+
+
 // 🔍 Controllo dell’ambiente
-if (window.location.hostname === "localhost") {
+if (window.location.hostname === "localhost" || window.location.hostname === "") {
     // 🌱 Ambiente locale
     config.API_IDENTITY_URL = "http://localhost:3000/identity";
 } else {
