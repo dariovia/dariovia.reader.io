@@ -83,11 +83,26 @@ function populateSelection(dataJson) {
     const opt = document.createElement("option");
     opt.value = c.collezione;
     opt.textContent = c.collezione;
+
+    // 🎨 Evidenzia SOLO "ruoli"
+    if (c.collezione === "ruoli") {
+      //opt.style.backgroundColor = "blue";
+      opt.style.color = "blue";
+      //opt.style.fontWeight = "bold";
+	  opt.textContent = opt.textContent + " (admin)"
+    } else if (c.collezione === "identita"){
+      //opt.style.backgroundColor = "blue";
+      opt.style.color = "red";
+      //opt.style.fontWeight = "bold";
+	  opt.textContent = opt.textContent + " (*)"
+    }
+
     select.appendChild(opt);
   });
 
   updateCallButtonState();
 }
+
 
 // ================= Update Button State =================
 function updateCallButtonState() {
@@ -398,4 +413,34 @@ function main(){
       renderRows(currentData);
     }catch(e){ alert(e.message); }
   });
+  
+  
+  
+  const wakeBtn = document.getElementById("wakeBtn");
+
+	wakeBtn.addEventListener("click", async () => {
+	  wakeBtn.disabled = true;
+	  wakeBtn.textContent = "⏳ Sveglio i servizi...";
+
+	  try {
+		// Chiamate in parallelo
+		await Promise.all([
+		  fetch("https://apimongo-tde7.onrender.com"),
+		  fetch("https://api-jwt-xe2h.onrender.com")
+		]);
+
+		wakeBtn.textContent = "✔ Servizi svegliati!";
+	  } catch (err) {
+		console.error(err);
+		wakeBtn.textContent = "❌ Errore nel risveglio";
+	  }
+
+	  setTimeout(() => {
+		wakeBtn.textContent = "☕ Sveglia servizi";
+		wakeBtn.disabled = false;
+	  }, 3000);
+	});
+
+  
+  
 }
