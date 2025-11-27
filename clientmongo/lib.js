@@ -425,8 +425,8 @@ function main(){
 	  try {
 		// Chiamate in parallelo
 		await Promise.all([
-		  fetch("https://apimongo-tde7.onrender.com"),
-		  fetch("https://api-jwt-xe2h.onrender.com")
+		  fetch(config.WAKEUP_TO),
+		  fetch(config.WAKEUP_MO)
 		]);
 
 		wakeBtn.textContent = "✔ Servizi svegliati!";
